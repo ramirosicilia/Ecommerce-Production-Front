@@ -1,0 +1,156 @@
+body {
+      width: 97%;
+      margin: auto;
+    }
+  
+    .floating-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    /* Estilo para el contenedor del buscador */
+    .search-container {
+      display: flex;
+      justify-content: flex-start;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 20px;
+    } 
+
+    .imagenes-categoria{
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    /* Estilo para el input de búsqueda */
+    #searchCategory {
+      width: 250px;
+      padding: 5px 10px;
+      font-size: 16px;
+    }
+
+    /* Botón de búsqueda */
+    #searchButton {
+      background-color: #4CAF50; /* Verde */
+      color: white;
+      border: none;
+      padding: 5px 15px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    #searchButton:hover {
+      background-color: #45a049;
+    }
+
+    /* Botón de limpiar */
+    #clearButton {
+      background-color: #f44336; /* Rojo */
+      color: white;
+      border: none;
+      padding: 5px 15px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    #clearButton:hover {
+      background-color: #e53935;
+    }
+
+    /* Estilo para los botones de eliminar y actualizar */
+    #deleteSelected, #updateSelected {
+      display: none;
+    } 
+
+    .table_danger {
+      background-color: #f8d7da !important;
+      opacity: .6;
+    }  
+
+
+  /* Modal content */
+.modal-content {
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    border: none;
+}
+
+/* Modal header */
+.modal-header {
+    background: rgba(255, 0, 0, 0.1);
+    border-bottom: none;
+}
+
+.modal-title {
+    font-weight: bold;
+    color: #dc3545; /* Rojo */
+}
+
+/* Texto del cuerpo */
+.modal-body p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+}  
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+
+/* Botones */
+.modal-content .btn {
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.modal-content .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Botón "Eliminar" */
+.btn-danger {
+    background-color: #ff3b3b;
+    border-color: #ff3b3b;
+}
+
+.btn-danger:hover {
+    background-color: #ff1e1e;
+    border-color: #ff1e1e;
+}
+
+/* Botón "Cancelar" */
+.btn-secondary {
+    background-color: #f1f1f1;
+    color: #333;
+    border-color: #ddd;
+}
+
+.btn-secondary:hover {
+    background-color: #e2e2e2;
+    border-color: #ccc;
+} 
+
+#allCategoriesButton {
+    border-radius: 25px; /* Botón con bordes redondeados */
+    font-weight: bold; /* Texto más grueso */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para un efecto flotante */
+    transition: transform 0.2s, box-shadow 0.2s; /* Animación al hacer hover */
+  }
+
+  #allCategoriesButton:hover {
+    transform: scale(1.05); /* Efecto de agrandamiento */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Sombra más profunda */
+  }
+

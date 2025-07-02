@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Producto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+    <link rel="stylesheet" href="./src/styles/registroProductos.css">
+</head> 
+
+<body> 
+
+    <div class="container mt-5"> 
+
+        <h2 class="mb-4 text-center">Agregar Producto</h2>
+
+        <div class="card shadow p-4"> 
+          <form  id="formulario-productos" enctype="multipart/form-data">
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="mb-3">
+                          <label for="productName" class="form-label">Nombre del Producto</label>
+                          <input type="text" class="form-control" name="nombre_producto" id="productName">
+                          <div class="text-danger" id="error-nombre"></div>
+                      </div>
+                      <div class="mb-3">
+                          <label for="productPrice" class="form-label">Precio</label>
+                          <input type="number" class="form-control" name="precio" id="productPrice">
+                          <div class="text-danger" id="error-precio"></div>
+                      </div>
+                      <div class="mb-3">
+                          <label for="productCategory" class="form-label">Categoría</label>
+                          <select class="form-control" name="categorias" id="productCategory">
+                              <option value="">Selecciona una categoría</option>
+                          </select>
+                          <div class="text-danger" id="error-categoria"></div>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="mb-3">
+                          <label for="detailName" class="form-label">Nombre del Detalle</label>
+                          <input type="text" class="form-control" name="detalles" id="detailName">
+                          <div class="text-danger" id="error-detalle-nombre"></div>
+                      </div>
+                      <div class="mb-3">
+                          <label for="detailDescription" class="form-label">Descripción del Detalle</label>
+                          <textarea class="form-control" name="descripcion" id="detailDescription" rows="4"></textarea>
+                          <div class="text-danger" id="error-detalles"></div>
+                      </div>
+                      <div class="mb-3">
+                          <label for="productImage" class="form-label">Imagen</label>
+                          <input type="file" class="form-control" name="images" id="productImage" multiple>
+                          <div id="imagePreview"></div>
+                          <div class="text-danger" id="error-imagen"></div>
+                      </div>
+                  </div>
+              </div>
+              <div class="text-center mt-4">
+                  <input type="submit" class="btn btn-primary" value="Guardar Producto">
+                  <a href="./dashboard.html" class="btn btn-secondary">Cancelar</a>
+              </div>
+          </form>
+          
+          <!-- Sección de gestión de Talles, Colores y Stock -->
+          <div class="mt-5">
+              <h4>Gestión de Talles, Colores y Stock</h4>
+              <div class="mb-3">
+                  <label for="selectProduct" class="form-label">Seleccionar Producto</label>
+                  <select class="form-control" id="selectProduct-nombre"></select>
+              </div>
+              <button type="button" class="btn btn-success" id="manageAttributes">Gestionar Talles, Colores y Stock</button>
+          </div> 
+
+          
+          <!-- Modal para agregar Talles, Colores y Stock --> 
+
+
+          <div class="modal fade" id="attributesModal" tabindex="-1" aria-labelledby="attributesModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="attributesModalLabel">Agregar Talles, Colores y Stock</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="productSize" class="form-label">Talles</label>
+                            <input type="text" class="form-control" id="productSize" placeholder="Ej: S, M, L, XL">
+                            <div class="text-danger" id="error-talla"></div> <!-- Mensaje de error -->
+                            <select class="form-control mt-2" id="productSizeSelect"></select>
+                            <button type="button" class="btn btn-primary mt-2" id="addSize">Agregar</button>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productColor" class="form-label">Colores</label>
+                            <input type="text" class="form-control" id="productColor" placeholder="Ej: Rojo, Azul, Verde">
+                            <div class="text-danger" id="error-color"></div> <!-- Mensaje de error -->
+                            <select class="form-control mt-2" id="productColorSelect"></select>
+                            <button type="button" class="btn btn-primary mt-2" id="addColor">Agregar</button>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productStock" class="form-label">Stock</label>
+                            <input type="text" class="form-control" id="productStock" placeholder="Cantidad">
+                            <div class="text-danger" id="error-stock"></div> <!-- Mensaje de error -->
+                            <select class="form-control mt-2" id="productStockSelect"></select>
+                            <button type="button" class="btn btn-primary mt-2" id="addStock">Agregar</button>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-success" id="submitBtn">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+
+        
+        
+    </div>
+  
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="./src/js/registroProductos.js"></script>
+    <script type="module" src="./src/js/gestionarImagenes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,193 @@
+
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+    :root {
+      --color-primary: #004e92;
+      --color-primary-light: #0073e6;
+      --color-accent: #00d4ff;
+      --color-bg: #f5f8fa;
+      --color-white: #ffffff;
+      --color-text-primary: #1a1a1a;
+      --color-text-secondary: #555;
+      --color-border: #e1e8f0;
+      --radius: 14px;
+      --shadow-soft: 0 8px 20px rgba(0, 78, 146, 0.15);
+      --transition: 0.3s ease;
+    }
+
+    body {
+      background: var(--color-bg);
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      color: var(--color-text-primary);
+    }
+
+    .card {
+      background: var(--color-white);
+      max-width: 960px;
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      padding: 32px 48px;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .btn-action {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      background: var(--color-primary);
+      color: var(--color-white);
+      border: none;
+      padding: 10px 20px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background-color var(--transition);
+      box-shadow: 0 6px 16px rgba(0, 78, 146, 0.3);
+    }
+
+    .btn-action:hover {
+      background: var(--color-primary-light);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--color-border);
+      padding-bottom: 16px;
+      margin-bottom: 32px;
+    }
+
+    .card-header h2 {
+      font-weight: 700;
+      font-size: 2rem;
+      color: var(--color-primary);
+      margin: 0;
+    }
+
+    .status {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      padding: 8px 24px;
+      border-radius: 999px;
+      color: var(--color-white);
+      user-select: none;
+    }
+
+    .status.procesando {
+      background: linear-gradient(135deg, #0073e6, #00d4ff);
+      box-shadow: 0 0 10px #00d4ff;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-bottom: 48px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .icon {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      background: var(--color-primary-light);
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--color-white);
+      box-shadow: 0 4px 12px rgba(0, 115, 230, 0.3);
+    }
+
+    .info-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .info-label {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--color-text-secondary);
+      margin-bottom: 4px;
+    }
+
+    .info-value {
+      font-weight: 700;
+      font-size: 1.05rem;
+      word-break: break-word;
+    }
+
+    .card-footer {
+      margin-top: 42px;
+      text-align: right;
+      color: var(--color-text-secondary);
+      font-size: 0.85rem;
+      font-style: italic;
+    }
+
+    .detalle-productos {
+      margin-bottom: 40px;
+    }
+
+    .detalle-productos h3 {
+      font-size: 1.5rem;
+      color: var(--color-primary);
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    .detalle-productos table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .detalle-productos thead {
+      background: var(--color-primary);
+      color: white;
+    }
+
+    .detalle-productos th,
+    .detalle-productos td {
+      padding: 14px 18px;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+
+    .detalle-productos td:nth-child(2),
+    .detalle-productos td:nth-child(3),
+    .detalle-productos td:nth-child(4),
+    .detalle-productos td:nth-child(5),
+    .detalle-productos td:nth-child(6) {
+      text-align: center;
+    }
+
+
+    .detalle-productos tbody tr:not(:last-child) td {
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .detalle-productos tfoot td {
+      background: #f0f4f8;
+      font-weight: 700;
+    }

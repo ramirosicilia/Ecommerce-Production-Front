@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(70%,hsl(204, 80.60%, 51.40%) -70%);
+    margin: 0;
+  
+  }  
+  
+  body::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.8), rgba(0, 122, 204, 0.8));
+      z-index: -1;
+      opacity: 0.9;
+    } 
+
+.contenedor {
+
+    border-radius: 8px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} 
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7);
+  z-index: -22;
+}
+
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, hsla(199, 95%, 85%, 0.5), transparent);
+  
+}
+
+form { 
+    width: 30rem; 
+    padding: 2rem;
+    background-color: #fef8f0; 
+    border-radius:3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    gap: 10px; /* Aumento el espacio vertical entre los elementos */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+} 
+
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    gap: 5px; /* Espaciado entre el label y el input, y entre el input y el mensaje */
+    position: relative;
+}
+
+label {
+    font-size: 14px; /* Aumento el tamaño de la fuente de los labels */
+    color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 10px 60px; /* Aumento el padding para que se vean más grandes */
+    font-size: 14px; /* Aumento el tamaño de la fuente */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+    text-align: center;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.container__icon {
+    display: none;
+    align-items: center;
+    gap: 8px; /* Aumento el espaciado entre la cruz y el mensaje */
+    visibility: visible;
+} 
+
+.error {
+    color: #dc3545;
+    font-size: 3px; /* Aumento el tamaño de la fuente del mensaje de error */
+    margin: 0;
+    display: block;
+}
+
+
+
+.container__icon .icono {
+    color: #dc3545;
+    font-size: 10px;
+}
+
+.container__icon .error {
+    color: #dc3545;
+    font-size: 10px; /* Aumento el tamaño de la fuente del mensaje de error */
+    margin: 0;
+    display: block;
+} 
+
+.btn__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:4rem;
+  
+} 
+
+ 
+.enviar {
+    padding: 12px 100px; /* Aumento el padding para que el botón sea más grande */
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px; /* Aumento el tamaño de la fuente del botón */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.enviar:hover {
+    background-color: #0056b3;
+}
+
+p a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 12px; /* Aumento el tamaño de la fuente del link */
+    transition: color 0.3s ease;
+}
+
+p a:hover {
+    color: #0056b3;
+}
+
+@media (max-width: 600px) {
+    .contenedor {
+        padding: 12px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    .enviar {
+        font-size: 14px;
+    }
+}
