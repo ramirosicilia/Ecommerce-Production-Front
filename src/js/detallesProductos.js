@@ -311,23 +311,22 @@ const coloresHTML = colores
 
 
 
-    const usuarioActual=JSON.parse(localStorage.getItem('usuario'))||[]
+    const usuarioActual=JSON.parse(localStorage.getItem('usuario'))||[] 
+    console.log(usuarioActual, "este esel usuario actual")
   
     let sizesTexto = "";
     let colorTexto = "";
     let obtenerUSer
-    let usuario=null 
-    let usuario_id=null
+   
+    console.log(usuarios?.user,"usuarios DB")
   
     if(usuarioActual.length>0){
-     obtenerUSer = usuarios.user?.find(user=>user.usuario===usuarioActual[usuarioActual.length-1].toString())
-      let { Usuario, Usuario_id } = obtenerUSer;
-      usuario=Usuario 
-      usuario_id=Usuario_id
+     obtenerUSer = usuarios?.user.find(user=>user.usuario===usuarioActual[0].toString()) 
+     console.log(obtenerUSer,'datos')
+    
+    
     }
   
-  
-
   
     let imagenSeleccionada;
   
@@ -559,12 +558,16 @@ function validarCombinacion(talle, color) {
     producto.producto_id === producto_ID &&
     (producto.color || "").trim().toLowerCase() === colorNormalizado &&
     (producto.talle || "").trim().toLowerCase() === talleNormalizado &&
-    producto.user_id === usuario_id
+    producto.user_id === obtenerUSer.usuario_id
   );
+      
+    
+   console.log("aca van a estar los usuario del local storage", obtenerUSer)
+
 
   let objectoStorage = {
-    user: usuario,
-    user_id: usuario_id,
+    user: obtenerUSer.usuario,
+    user_id: obtenerUSer.usuario_id,
     producto_id: producto_ID,
     nombre_producto: nombre_producto,
     precio_producto: precio,
@@ -924,20 +927,17 @@ function validarCombinacion(talle, color) {
          let stock=null 
          let colorNombre=null
          let talleNombre=null 
-         let usuario 
-         let usuario_id
-
-         if(usuarioNombre.length>0){ 
-          
-         const obtenerUSer = usuarios.user?.find(user => usuarioNombre.includes(user.usuario));
+         let obtenerUSer
        
-         const {Usuario,Usuario_id}=obtenerUSer 
-         usuario=Usuario
-         usuario_id=Usuario_id
 
+         if(usuarioNombre.length>0){  
+
+  
+            obtenerUSer=usuarios.user?.find(user => usuarioNombre.includes(user.usuario));
+      
   
          }
-  
+      
   
            const verificacion=JSON.parse(localStorage.getItem("verificado"))
            if(verificacion==="desactivado"){ 
@@ -1010,10 +1010,11 @@ function validarCombinacion(talle, color) {
           }
      
           } 
+          
   
           const objectoStorage={
-            user:usuario,
-            user_id:usuario_id,
+            user:obtenerUSer.usuario,
+            user_id:obtenerUSer.usuario_id,
             producto_id:productoID,
             nombre_producto:nombre,
             precio_producto:precio,
