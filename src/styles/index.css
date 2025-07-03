@@ -75,13 +75,16 @@ a {
   transform: scale(1.08);
   cursor: pointer;
 }
-
+.product{
+  font-size: 2rem;
+}
 /* === NAVBAR === */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  font-size: 2rem;
   background: rgba(0, 0, 0, 0.7);
   color: white;
   display: flex;
@@ -274,7 +277,7 @@ a {
   text-decoration: underline;
 }
 
-/* === HAMBURGER === */
+/* === HAMBURGUESA === */
 .hamburger {
   font-size: 2rem;
   background: none;
@@ -282,13 +285,57 @@ a {
   color: white;
   display: none;
   cursor: pointer;
+} 
+
+@media (min-width: 992px) {
+  .hamburger {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .nav-links {
+    display: flex !important;
+    flex-direction: row;
+    gap: 20px;
+    position: static;
+    background: none;
+  }
 }
 
-/* FUNCIONALIDAD RESPONSIVE DEL MENÚ */
-@media (max-width: 991px) {
+
+/* === FUNCIONALIDAD RESPONSIVE SIN JS CON :HOVER === */
+@media (max-width: 991px) { 
+
+   .menu-toggle {
+       display: none;
+    }
+
   .hamburger {
     display: block;
   }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background: rgba(0, 0, 0, 0.95);
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 20px;
+    z-index: 9;
+  } 
+  
+  /* CUANDO EL CHECKBOX ESTÁ ACTIVADO, MOSTRAR EL MENÚ */
+  .menu-toggle:checked + .hamburger + .nav-links {
+    display: flex;
+  }
+
+  
 
   .navbar {
     flex-direction: column;
@@ -298,23 +345,12 @@ a {
   .navbar-left {
     width: 100%;
     justify-content: space-between;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-    margin-top: 10px;
-    padding-left: 0;
-  }
-
-  .nav-links.active {
     display: flex;
+    align-items: center;
   }
 }
 
-/* MEDIA QUERIES BOOTSTRAP-LIKE */
+/* === MEDIA QUERIES DESKTOP === */
 @media (min-width: 576px) {
   .products-section {
     grid-template-columns: repeat(2, 1fr);
@@ -356,6 +392,8 @@ a {
     display: flex !important;
     flex-direction: row;
     gap: 20px;
+    position: static;
+    background: none;
   }
 }
 
@@ -382,7 +420,7 @@ a {
   font-family: 'bootstrap-icons';
 }
 
-/* NUEVO: Ajustes para "VER PRODUCTOS" en pantallas pequeñas */
+/* Ajustes para VER PRODUCTOS en pantallas pequeñas */
 @media (max-width: 576px) {
   .link-ancor {
     font-size: 1rem;
