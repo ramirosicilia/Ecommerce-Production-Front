@@ -3,17 +3,27 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 } 
+body{
+    overflow-x: hidden;
+}
 
 .modal-content {
-    max-height: 100vh; /* Máximo 90% de la pantalla */
-    overflow-y: auto; /* Desplazamiento interno */
+   max-height: 90vh;     /* Limita altura para no sobrepasar la pantalla */
+  overflow-y: auto;     /* Scroll vertical interno si hace falta */
+  max-width: 100vw;     /* Nunca más ancho que la ventana */
+  box-sizing: border-box; /* Para que padding no aumente tamaño */
+  border-radius: 12px;  /* Mantener bordes redondeados */
+  margin: 0 auto;      splazamiento interno */
 } 
 
 
 
 .modal-dialog {
-  max-width: 800px; /* Ajusta el tamaño del modal */
+ max-width: 800px;    /* Máximo ancho */
+  width: 90vw;         /* Ancho relativo a la pantalla para evitar overflow */
+  margin: 1.75rem auto; /* Centramos con margen */
 }
 
 /* Crear dos columnas dentro del formulario */
@@ -361,9 +371,11 @@ tr.desactivado .btn-eliminar {
 
 /* Estilos para la tabla */
 #tabla-productos {
-  width: 100%; /* Asegura que la tabla ocupe todo el ancho disponible */
-  border-collapse: collapse; /* Elimina los espacios entre las celdas */
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden; /* para evitar scroll horizontal */
 }
+
 
 /* Estilos para las celdas */
 #tabla-productos th, #tabla-productos td {
@@ -550,7 +562,302 @@ tr.desactivado td {
     }
     .modal-content {
         border-radius: 10px;
-    }
+    } 
 
 
-      
+
+/* === RESPONSIVE GLOBAL === */
+
+/* Evitar overflow horizontal en toda la página */
+body, html {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Móviles muy pequeños (hasta 320px) */
+/* Móviles muy pequeños (hasta 320px) */
+/* Móviles muy pequeños (hasta 320px) */
+@media (max-width: 320px) {
+  .formulario-update-imagenes,
+  .formulario-delete-imagenes {
+    grid-template-columns: 1fr;
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 0 10px;
+  }
+  .form-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 0 10px;
+  }
+  .form-group {
+    min-width: 100% !important;
+  }
+  .table,
+  .form-select,
+  .btn {
+    font-size: 12px;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Inputs, selects y textarea más pequeños y centrados en el modal */
+  #editProductModal input,
+  #editProductModal select,
+  #editProductModal textarea {
+    width: 70% !important;
+    max-width: 280px;
+    margin: 0 auto 10px auto;
+    display: block;
+    box-sizing: border-box;
+  }
+
+  #tabla-productos thead {
+    display: none;
+  }
+  #tabla-productos tbody,
+  #tabla-productos tr,
+  #tabla-productos td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  #tabla-productos td {
+    text-align: left;
+    padding: 10px 10px 10px 50%;
+    position: relative;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    word-wrap: break-word;
+  }
+  #tabla-productos td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    width: 45%;
+    padding-left: 15px;
+    font-weight: bold;
+    text-align: left;
+    white-space: nowrap;
+  }
+}
+
+/* Móviles pequeños (321px a 480px) */
+@media (min-width: 321px) and (max-width: 480px) {
+  .formulario-update-imagenes,
+  .formulario-delete-imagenes {
+    grid-template-columns: 1fr;
+    place-content: center;
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 0 10px;
+  }
+  .form-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 0 10px;
+  }
+  .form-group {
+    min-width: 100% !important;
+  }
+  .table,
+  .form-select,
+  .btn {
+    font-size: 13px;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Inputs, selects y textarea más pequeños y centrados en el modal */
+  #editProductModal input,
+  #editProductModal select,
+  #editProductModal textarea {
+    width: 85% !important;
+    max-width: 320px;
+    margin: 0 auto 10px auto;
+    display: block;
+    box-sizing: border-box;
+  }
+
+  #tabla-productos thead {
+    display: none;
+  }
+  #tabla-productos tbody,
+  #tabla-productos tr,
+  #tabla-productos td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  #tabla-productos td {
+    text-align: left;
+    padding: 10px 10px 10px 50%;
+    position: relative;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    word-wrap: break-word;
+  }
+  #tabla-productos td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    width: 45%;
+    padding-left: 15px;
+    font-weight: bold;
+    text-align: left;
+    white-space: nowrap;
+  }
+}
+
+/* Móviles medianos (481px a 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+  .formulario-update-imagenes,
+  .formulario-delete-imagenes {
+    grid-template-columns: repeat(2, 1fr);
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 0 15px;
+  }
+  .form-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 0 15px;
+  }
+  .form-group {
+    min-width: 48%;
+  }
+  .table,
+  .form-select,
+  .btn {
+    font-size: 14px;
+    max-width: 100%;
+  }
+
+  /* Inputs, selects y textarea más pequeños y centrados en el modal */
+  #editProductModal input,
+  #editProductModal select,
+  #editProductModal textarea {
+    width: 70% !important;
+    max-width: 400px;
+    margin: 0 auto 10px auto;
+    display: block;
+    box-sizing: border-box;
+  }
+}
+
+/* Tablets (768px a 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .formulario-update-imagenes,
+  .formulario-delete-imagenes {
+    grid-template-columns: repeat(2, 1fr);
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 0 20px;
+  }
+  .form-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 0 20px;
+  }
+  .form-group {
+    min-width: 48%;
+  }
+  .table,
+  .form-select,
+  .btn {
+    font-size: 15px;
+    max-width: 100%;
+  }
+
+  /* Inputs, selects y textarea más pequeños y centrados en el modal */
+  #editProductModal input,
+  #editProductModal select,
+  #editProductModal textarea {
+    width: 70% !important;
+    max-width: 480px;
+    margin: 0 auto 10px auto;
+    display: block;
+    box-sizing: border-box;
+  }
+}
+
+/* Pantallas grandes (1024px a 1366px) */
+@media (min-width: 1024px) and (max-width: 1366px) {
+  .formulario-update-imagenes,
+  .formulario-delete-imagenes {
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    padding: 0 30px;
+  }
+  .form-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0 30px;
+  }
+  .form-group {
+    min-width: 30%;
+  }
+  .table,
+  .form-select,
+  .btn {
+    font-size: 15px;
+  }
+
+  /* Inputs, selects y textarea más pequeños y centrados en el modal */
+  #editProductModal input,
+  #editProductModal select,
+  #editProductModal textarea {
+    width: 70% !important;
+    max-width: 500px;
+    margin: 0 auto 10px auto;
+    display: block;
+    box-sizing: border-box;
+  }
+}
+
+/* Pantallas muy grandes (1367px o más) */
+@media (min-width: 1367px) {
+  .formulario-update-imagenes,
+  .formulario-delete-imagenes {
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    padding: 0 40px;
+  }
+  .form-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0 40px;
+  }
+  .form-group {
+    min-width: 30%;
+  }
+  .table,
+  .form-select,
+  .btn {
+    font-size: 16px;
+  }
+
+  /* Inputs, selects y textarea más pequeños y centrados en el modal */
+  #editProductModal input,
+  #editProductModal select,
+  #editProductModal textarea {
+    width: 70% !important;
+    max-width: 500px;
+    margin: 0 auto 10px auto;
+    display: block;
+    box-sizing: border-box;
+  }
+}
+

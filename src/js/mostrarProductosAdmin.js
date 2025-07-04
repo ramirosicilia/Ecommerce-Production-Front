@@ -77,49 +77,54 @@ export async function mostrarProductosAdmin() {
               }
       
             
-              tbody.innerHTML += `  
-              <tr class="tabla" >    
-                  <td>
-                      <input type="checkbox" class="form-check-input pause-checkbox check" data-id="${producto.producto_id}">
-                  </td>
-                  <td><div class="contenido-celda"><img src="${imagenUrl}" alt="Producto" style="max-width: 50px;"> ${producto.nombre_producto || ""}</div></td>
-                 <td><div class="contenido-celda">${producto.precio != null ? "$ " + producto.precio.toFixed(2) : ""}</div></td>
-     
-
-                  <td><div class="contenido-celda">${categoriaProducto}</div></td>
-            
-                  <!-- ✅ Celda combinada con estilos flex y scroll -->
-                  <td colspan="2">
-                      <div style="
-                          max-height: 80px; 
-                          overflow-y: auto; 
-                          font-family: monospace;
-                          
-                      ">  
-                          ${
-                            producto.productos_variantes.map(variacion => {
-                              const talle = variacion.talles?.insertar_talle || '';
-                              const color = variacion.colores?.insertar_color || '';
-                              const stock = variacion.stock ?? 0;
-                              return `<div style="display: flex; gap: 20px;">
-                                        <div data-size="${producto.producto_id}">${talle}</div>
-                                        <div data-colour="${producto.producto_id}">${color}</div>
-                                        <div class="stocker"data-stocker="${producto.producto_id}" style="margin-left:auto; position: relative; right: 2rem">${stock}</div>
-                                      </div>`;
-                            }).join('')
-                          }
-                      </div>
-                  </td>
-            
-                <td class="celda-botones">
-                         <div style="display: flex; justify-content:center; align-items: center; ">
-                          <button class="btn btn-primary btn-sm btn-editar" style="margin-left: 20px" data-id="${producto.producto_id}" data-talle-id="${talleIds}" data-color-id="${colorIds}" data-bs-toggle="modal" data-bs-target="#editProductModal"><i class="fas fa-edit"></i> Editar</button>
-                          <button class="btn btn-danger btn-sm btn-eliminar" data-id="${producto.producto_id}" data-talle-id="${talleIds}" data-color-id="${colorIds}" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-trash"></i> Eliminar</button>
-                         </div>
-                </td>
-
-              </tr>
-            `;  
+             tbody.innerHTML += `  
+  <tr class="tabla">    
+    <td data-label="Inhabilitar">
+      <input type="checkbox" class="form-check-input pause-checkbox check" data-id="${producto.producto_id}">
+    </td>
+    <td data-label="Producto">
+      <div class="contenido-celda">
+        <img src="${imagenUrl}" alt="Producto" style="max-width: 50px;"> ${producto.nombre_producto || ""}
+      </div>
+    </td>
+    <td data-label="Precio">
+      <div class="contenido-celda">
+        ${producto.precio != null ? "$ " + producto.precio.toFixed(2) : ""}
+      </div>
+    </td>
+    <td data-label="Categoría">
+      <div class="contenido-celda">${categoriaProducto}</div>
+    </td>
+    <!-- Combina talle, color y stock en una celda colspan=2 -->
+    <td data-label="Talles y colores" colspan="2">
+      <div style="
+        max-height: 80px; 
+        overflow-y: auto; 
+        font-family: monospace;"
+        class="variantes-scroll"
+      >  
+        ${
+          producto.productos_variantes.map(variacion => {
+            const talle = variacion.talles?.insertar_talle || '';
+            const color = variacion.colores?.insertar_color || '';
+            const stock = variacion.stock ?? 0;
+            return `<div style="display: flex; gap: 20px;">
+                      <div data-size="${producto.producto_id}">${talle}</div>
+                      <div data-colour="${producto.producto_id}">${color}</div>
+                      <div class="stocker" data-stocker="${producto.producto_id}" style="margin-left:auto; position: relative; right: 2rem">${stock}</div>
+                    </div>`;
+          }).join('')
+        }
+      </div>
+    </td>
+    <td data-label="Acciones" class="celda-botones">
+      <div style="display: flex; justify-content:center; align-items: center;">
+        <button class="btn btn-primary btn-sm btn-editar" style="margin-left: 20px" data-id="${producto.producto_id}" data-talle-id="${talleIds}" data-color-id="${colorIds}" data-bs-toggle="modal" data-bs-target="#editProductModal"><i class="fas fa-edit"></i> Editar</button>
+        <button class="btn btn-danger btn-sm btn-eliminar" data-id="${producto.producto_id}" data-talle-id="${talleIds}" data-color-id="${colorIds}" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-trash"></i> Eliminar</button>
+      </div>
+    </td>
+  </tr>
+`;
 
             stockerFuncion(producto.producto_id)
 

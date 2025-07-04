@@ -62,6 +62,7 @@ body {
 
 form { 
     width: 30rem; 
+  
     padding: 2rem;
     background-color: #fef8f0; 
     border-radius:3px;
@@ -187,4 +188,25 @@ p a:hover {
     .enviar {
         font-size: 14px;
     }
+}
+
+
+@media (max-width: 1024px) and (max-height: 600px) {
+  form {
+    transform: translate(-50%, -40%);
+    width: 70%;
+    padding: 1rem 1.5rem;
+  }
+
+  .enviar {
+    font-size: 14px;
+    padding: 12px 30px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    padding: 10px 25px;
+    font-size: 13px;
+  }
 }
