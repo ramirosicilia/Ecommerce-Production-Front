@@ -21,7 +21,7 @@ export const obtenerProductos=async()=>{
 
     else{
       const productosData= await response.json()  
-      console.log(productosData)
+      console.log(productosData,"los productos")
       
 
       return productosData
