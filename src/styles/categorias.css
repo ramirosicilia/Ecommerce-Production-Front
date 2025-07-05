@@ -3,6 +3,8 @@ body {
   margin: auto;
   font-family: Arial, sans-serif;
   padding: 20px 0;
+  background-color: #fff;
+  color: #222;
 }
 
 /* Floating button */
@@ -11,15 +13,30 @@ body {
   bottom: 20px;
   right: 20px;
   z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  border-radius: 50%;
+  background-color: #007bff;
+  color: white;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.floating-btn:hover {
+  background-color: #0056b3;
 }
 
 /* Search container */
 .search-container {
   display: flex;
   justify-content: flex-start;
-  gap: 10px;
+  gap: 15px;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   flex-wrap: wrap;
 }
 
@@ -29,43 +46,50 @@ body {
   height: 50px;
   object-fit: cover;
   border-radius: 8px;
+  border: 1px solid #ddd;
 }
 
 /* Input de búsqueda */
 #searchCategory {
   width: 250px;
-  padding: 5px 10px;
+  max-width: 100%;
+  padding: 8px 12px;
   font-size: 16px;
-  border-radius: 5px;
+  border-radius: 8px;
   border: 1px solid #ccc;
+  transition: border-color 0.3s ease;
 }
 
-/* Botón buscar */
+#searchCategory:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Botones */
+#searchButton,
+#clearButton {
+  padding: 8px 18px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+}
+
 #searchButton {
   background-color: #4CAF50;
   color: white;
-  border: none;
-  padding: 5px 15px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s;
 }
 
 #searchButton:hover {
   background-color: #45a049;
 }
 
-/* Botón limpiar */
 #clearButton {
   background-color: #f44336;
   color: white;
-  border: none;
-  padding: 5px 15px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s;
 }
 
 #clearButton:hover {
@@ -78,10 +102,94 @@ body {
   display: none;
 }
 
-/* Fila destacada */
+/* Botón redondeado para todas las categorías */
+#allCategoriesButton {
+  border-radius: 25px;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+#allCategoriesButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Tabla categorías */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 15px;
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f8f9fa;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
 .table_danger {
   background-color: #f8d7da !important;
-  opacity: 0.6;
+  opacity: 0.7;
+}
+
+/* Botones editar y eliminar en la tabla */
+.btn-editar {
+  background-color: #f0ad4e;
+  border: none;
+  padding: 6px 14px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #fff;
+  margin-right: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-editar:hover {
+  background-color: #ec971f;
+}
+
+.btn-eliminar {
+  background-color: #ff3b3b;
+  border: none;
+  padding: 6px 14px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-eliminar:hover {
+  background-color: #e63939;
 }
 
 /* MODAL */
@@ -89,6 +197,8 @@ body {
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
   border: none;
+  max-width: 500px;
+  margin: auto;
 }
 
 .modal-header {
@@ -117,6 +227,7 @@ body {
   border-radius: 8px;
   font-weight: bold;
   transition: all 0.3s ease;
+  padding: 10px 20px;
 }
 
 .modal-content .btn:hover {
@@ -145,19 +256,6 @@ body {
   border-color: #ccc;
 }
 
-/* Botón redondeado flotante */
-#allCategoriesButton {
-  border-radius: 25px;
-  font-weight: bold;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-#allCategoriesButton:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-}
-
 /* =============================== */
 /* === MEDIA QUERIES RESPONSIVE === */
 /* =============================== */
@@ -171,14 +269,19 @@ body {
   .modal-body p {
     font-size: 15px;
   }
+
+  th, td {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
 }
 
 /* ≤ 768px */
 @media (max-width: 768px) {
   .search-container {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
+    align-items: stretch;
+    gap: 15px;
   }
 
   #searchCategory {
@@ -198,18 +301,25 @@ body {
   .modal-body p {
     font-size: 14.5px;
   }
+
+  th, td {
+    font-size: 13.5px;
+    padding: 8px 10px;
+  }
 }
 
 /* ≤ 480px */
 @media (max-width: 480px) {
   body {
     width: 100%;
-    padding: 10px;
+    padding: 15px;
   }
 
   .floating-btn {
     bottom: 16px;
     right: 16px;
+    width: 44px;
+    height: 44px;
   }
 
   #searchCategory {
@@ -219,7 +329,7 @@ body {
   #searchButton,
   #clearButton {
     font-size: 15px;
-    padding: 6px 12px;
+    padding: 8px 14px;
   }
 
   .modal-body p {
@@ -228,12 +338,26 @@ body {
 
   .modal-content .btn {
     font-size: 15px;
-    padding: 8px 14px;
+    padding: 8px 16px;
+  }
+
+  #allCategoriesButton {
+    font-size: 15px;
+    padding: 8px 18px;
+  }
+
+  th, td {
+    font-size: 13.5px;
+    padding: 8px 10px;
   }
 }
 
 /* ≤ 375px */
 @media (max-width: 375px) {
+  .search-container {
+    gap: 12px;
+  }
+
   #searchCategory {
     font-size: 14px;
   }
@@ -241,7 +365,7 @@ body {
   #searchButton,
   #clearButton {
     font-size: 14px;
-    padding: 6px 10px;
+    padding: 8px 12px;
   }
 
   .modal-body p {
@@ -250,7 +374,17 @@ body {
 
   .modal-content .btn {
     font-size: 14px;
-    padding: 7px 12px;
+    padding: 7px 14px;
+  }
+
+  #allCategoriesButton {
+    font-size: 14px;
+    padding: 7px 14px;
+  }
+
+  th, td {
+    font-size: 13px;
+    padding: 6px 8px;
   }
 }
 
@@ -263,7 +397,7 @@ body {
   #searchButton,
   #clearButton {
     font-size: 13px;
-    padding: 5px 10px;
+    padding: 6px 10px;
   }
 
   .imagenes-categoria {
@@ -281,7 +415,16 @@ body {
   }
 
   #allCategoriesButton {
-    font-size: 14px;
+    font-size: 13px;
     padding: 6px 12px;
+  }
+
+  .search-container {
+    gap: 10px;
+  }
+
+  th, td {
+    font-size: 12.5px;
+    padding: 5px 6px;
   }
 }

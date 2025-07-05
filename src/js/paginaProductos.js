@@ -1037,38 +1037,137 @@ async function selectorCategorys() {
   document.querySelector('.modal-2')?.remove();
 
   // Crear el modal con los datos del producto agregado
-  const div = document.createElement("div");
+  const div = document.createElement("div"); 
+
   div.innerHTML = `
-  <div style="background: white; border-radius: 12px; width: 640px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%);" class="modal-2">
-    <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px; border-bottom: 1px solid #ddd;" class="modal-header">
-      <h2 style="font-size: 18px; margin: 0; display: flex; align-items: center;">
-        <span style="color: green; font-size: 24px; margin-right: 10px;" class="icon-check">✔</span>Producto agregado a tu Carro
+  <div style="
+    background: white; 
+    border-radius: 12px; 
+    max-width: 90vw; 
+    width: 640px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); 
+    position: fixed; 
+    left: 50%; 
+    top: 50%; 
+    transform: translate(-50%, -50%);
+    overflow-wrap: break-word;
+    font-family: Arial, sans-serif;
+    z-index: 9999;
+  " class="modal-2">
+    <div style="
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between; 
+      padding: 16px; 
+      border-bottom: 1px solid #ddd;
+      flex-wrap: wrap;
+    " class="modal-header">
+      <h2 style="
+        font-size: 18px; 
+        margin: 0; 
+        display: flex; 
+        align-items: center;
+        flex: 1 1 100%;
+      ">
+        <span style="color: green; font-size: 24px; margin-right: 10px;" class="icon-check">✔</span>
+        Producto agregado a tu Carro
       </h2>
-      <button type="button" style="font-size: 24px; cursor: pointer; border: none;background: none;" id="close-x" class="modal_close">x</button>
+      <button type="button" style="
+        font-size: 24px; 
+        cursor: pointer; 
+        border: none;
+        background: none;
+        flex: 0 0 auto;
+      " id="close-x" class="modal_close">x</button>
     </div>
-    <div style="display: flex; padding: 16px;" class="modal-content">
-      <img style="width: 80px; height: auto; margin-right: 16px;" src="${primerProducto?.imagen ?? ''}" alt="Producto" />
-      <div style="flex-grow: 1;" class="product-info">
+    <div style="
+      display: flex; 
+      padding: 16px; 
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    " class="modal-content">
+      <img style="
+        width: 80px; 
+        height: auto; 
+        margin-right: 16px;
+        flex-shrink: 0;
+      " src="${primerProducto?.imagen ?? ''}" alt="Producto" />
+      <div style="flex-grow: 1; min-width: 200px;" class="product-info">
         <h3 style="font-size: 14px; margin: 0; font-weight: normal;">${primerProducto?.nombre_producto ?? ''}</h3>
         <strong style="display: block; margin: 4px 0;">${primerProducto?.detalles ?? ''}</strong>
-        <p style="color: red;">talle: ${sizes}</p>
-        <p style="color: red;">color: ${color}</p>
-        <p style="color: red;">el máximo permitido: ${stock ?? 0} unidades</p>
-        <div style="font-size: 18px; font-weight: bold;" class="product-price">Precio: $${primerProducto?.precio_producto ?? 0}</div>
-        <div style="display: flex; align-items: center; margin-top: 8px;" class="quantity-selector">
-          <button class="boton-eliminar" id="btn-eliminar" style="width: 28px; height: 28px; font-size: 16px; border: 1px solid #ccc; background: white; cursor: pointer;">-</button>
-          <span class="quantity-selector" style="width: 30px; text-align: center;">${primerProducto?.cantidad ?? 1}</span>
-          <button class="boton-agregar" id="btn-agregar" style="width: 28px; height: 28px; font-size: 16px; border: 1px solid #ccc; background: white; cursor: pointer;">+</button>
+        <p style="color: red; margin: 2px 0;">Talle: ${sizes}</p>
+        <p style="color: red; margin: 2px 0;">Color: ${color}</p>
+        <p style="color: red; margin: 2px 0;">El máximo permitido: ${stock ?? 0} unidades</p>
+        <div style="font-size: 18px; font-weight: bold; margin-top: 8px;" class="product-price">
+          Precio: $${primerProducto?.precio_producto ?? 0}
+        </div>
+        <div style="
+          display: flex; 
+          align-items: center; 
+          margin-top: 8px; 
+          gap: 6px;
+          flex-wrap: nowrap;
+        " class="quantity-selector">
+          <button class="boton-eliminar" id="btn-eliminar" style="
+            width: 28px; 
+            height: 28px; 
+            font-size: 16px; 
+            border: 1px solid #ccc; 
+            background: white; 
+            cursor: pointer;
+            user-select: none;
+          ">-</button>
+          <span class="quantity-selector" style="
+            width: 30px; 
+            text-align: center;
+            user-select: none;
+          ">${primerProducto?.cantidad ?? 1}</span>
+          <button class="boton-agregar" id="btn-agregar" style="
+            width: 28px; 
+            height: 28px; 
+            font-size: 16px; 
+            border: 1px solid #ccc; 
+            background: white; 
+            cursor: pointer;
+            user-select: none;
+          ">+</button>
         </div>
       </div>
     </div>
-    <div style="padding: 16px; display: flex; justify-content: space-between; border-top: 1px solid #ddd;" class="modal-footer">
-      <a style="font-weight: bold; color: #0046be;" class="seguir_comprando" href="#">Seguir comprando</a>
-      <a id="carrito" href="./carrito.html" style="background: #3a3f4c; text-decoration:none; color: white; padding: 8px 24px; border: none; border-radius: 20px; font-size: 16px; cursor: pointer;" class="btn-carro">Ir al Carro</a>
+    <div style="
+      padding: 16px; 
+      display: flex; 
+      justify-content: space-between; 
+      border-top: 1px solid #ddd;
+      flex-wrap: wrap;
+      gap: 12px;
+    " class="modal-footer">
+      <a style="
+        font-weight: bold; 
+        color: #0046be; 
+        flex: 1 1 auto; 
+        text-align: center; 
+        min-width: 150px;
+        text-decoration: none;
+      " class="seguir_comprando" href="#">Seguir comprando</a>
+      <a id="carrito" href="./carrito.html" style="
+        background: #3a3f4c; 
+        text-decoration:none; 
+        color: white; 
+        padding: 8px 24px; 
+        border: none; 
+        border-radius: 20px; 
+        font-size: 16px; 
+        cursor: pointer; 
+        flex: 1 1 auto;
+        text-align: center;
+        min-width: 150px;
+      " class="btn-carro">Ir al Carro</a>
     </div>
-  </div>`;
+  </div>
+`;
 
- 
 
   if (!document.body.contains(div)) {
     document.body.append(div);

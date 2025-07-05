@@ -171,33 +171,89 @@ export const renderImages = async () => {
 
         imagesFiltradas.forEach((img, index) => {
             const div = document.createElement("div");
-            div.classList.add("formulario-update-imagenes");
+           div.classList.add("formulario-update-imagenes");
 
-            const imagesHTML = Array.isArray(img.urls)
-                ? img.urls.map((url, urlIndex) => 
-                    `<img src="${url}" class="img-fluid imagen-producto-update" 
-                        data-id="${img.producto_id}" 
-                        alt="Imagen del Producto" 
-                        data-index="${urlIndex}" 
-                        data-parent-index="${index}">`
-                ).join('')
-                : `<img src="${img.urls}" class="img-fluid imagen-producto-update" 
-                        alt="Imagen del Producto" 
-                        data-id="${img.producto_id}" 
-                        data-index="0" >`;
-                      
+const imagesHTML = Array.isArray(img.urls)
+  ? img.urls.map((url, urlIndex) => 
+      `<img src="${url}" 
+            class="img-fluid imagen-producto-update" 
+            data-id="${img.producto_id}" 
+            alt="Imagen del Producto" 
+            data-index="${urlIndex}" 
+            data-parent-index="${index}"
+            style="
+              max-width: 100px; 
+              height: auto; 
+              margin: 8px; 
+              border-radius: 8px;
+              object-fit: contain;
+              box-shadow: 0 0 5px rgba(0,0,0,0.2);
+              flex: 0 1 auto;
+            ">`
+    ).join('')
+  : `<img src="${img.urls}" 
+          class="img-fluid imagen-producto-update" 
+          alt="Imagen del Producto" 
+          data-id="${img.producto_id}" 
+          data-index="0"
+          style="
+            max-width: 100px; 
+            height: auto; 
+            margin: 8px; 
+            border-radius: 8px;
+            object-fit: contain;
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+            flex: 0 1 auto;
+          ">`;
 
-            div.innerHTML = `
-                ${imagesHTML}
-                <div class="container-update-btn">
-                        <input type="file" class="input-imagen-update" name="images" 
-                          data-index="0">
-                        <button type="submit" class="input-submit-update" 
-                            style="padding: 5px 20px; background-color: #0056b3; border-radius: 10px; color: white; font-weight: 600; font-size: 11px; border: none;">
-                            Actualizar Imágenes
-                        </button>
-                <div>
-            `;
+div.innerHTML = `
+  <div style="
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 8px;
+    padding: 8px;
+    max-width: 100%;
+    box-sizing: border-box;
+  ">
+    ${imagesHTML}
+  </div>
+  
+  <div class="container-update-btn" style="
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 12px;
+    padding: 10px;
+  ">
+    <input 
+      type="file" 
+      class="input-imagen-update" 
+      name="images" 
+      data-index="0"
+      style="
+        padding: 6px;
+        font-size: 12px;
+        max-width: 100%;
+      "
+    >
+    <button type="submit" class="input-submit-update" 
+      style="
+        padding: 6px 20px; 
+        background-color: #0056b3; 
+        border-radius: 10px; 
+        color: white; 
+        font-weight: 600; 
+        font-size: 12px; 
+        border: none;
+        cursor: pointer;
+      ">
+      Actualizar Imágenes
+    </button>
+  </div>
+`;
+
 
             modalImage.appendChild(div);
         });
@@ -328,37 +384,83 @@ const eliminarImagen =async()=>{
         
 
 
-        imagesFiltradas.forEach((img, index) => {
-            const div = document.createElement("div");
-            div.classList.add("formulario-delete-imagenes");
-            console.log(img, 'img')
+       imagesFiltradas.forEach((img, index) => {
+  const div = document.createElement("div");
+  div.classList.add("formulario-delete-imagenes");
 
-            const imagesHTML = Array.isArray(img.urls)
-                ? img.urls.map((url, urlIndex) =>{  
-                    console.log(url, 'url')
-                  return `<img src="${url}" class="img-fluid imagen-producto-delete" 
-                        data-id="${img.producto_id}" 
-                        alt="Imagen del Producto" 
-                        data-index="${urlIndex}">` 
-                   
-           }).join('')
-                : `<img src="${img.urls}" class="img-fluid imagen-producto-delete" 
-                        alt="Imagen del Producto" 
-                        data-id="${img.producto_id}" 
-                        data-index="0">`;
-  
-            div.innerHTML = `
-                ${imagesHTML}
-    
-          
-                <button type="submit" class="input-submit-delete" 
-                    style="padding: 5px 20px; background-color: #0056b3; border-radius: 10px; color: white; font-weight: 600; font-size: 11px; border: none;">
-                   Eliminar Imágenes
-                </button>
-            `;
+  const imagesHTML = Array.isArray(img.urls)
+    ? img.urls.map((url, urlIndex) => {
+        return `
+          <img src="${url}" 
+              class="img-fluid imagen-producto-delete" 
+              data-id="${img.producto_id}" 
+              alt="Imagen del Producto" 
+              data-index="${urlIndex}"
+              style="
+                max-width: 100px; 
+                height: auto; 
+                margin: 8px; 
+                border-radius: 8px;
+                object-fit: contain;
+                box-shadow: 0 0 5px rgba(0,0,0,0.2);
+                flex: 0 1 auto;
+              ">
+        `;
+      }).join('')
+    : `<img src="${img.urls}" 
+            class="img-fluid imagen-producto-delete" 
+            alt="Imagen del Producto" 
+            data-id="${img.producto_id}" 
+            data-index="0"
+            style="
+              max-width: 100px; 
+              height: auto; 
+              margin: 8px; 
+              border-radius: 8px;
+              object-fit: contain;
+              box-shadow: 0 0 5px rgba(0,0,0,0.2);
+              flex: 0 1 auto;
+            ">`;
 
-     modalBody.appendChild(div);
-        });
+  div.innerHTML = `
+    <div style="
+      display: flex; 
+      flex-wrap: wrap; 
+      justify-content: center; 
+      gap: 8px;
+      padding: 8px;
+      max-width: 100%;
+      box-sizing: border-box;
+    ">
+      ${imagesHTML}
+    </div>
+
+    <div style="
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    ">
+      <button type="submit" class="input-submit-delete" 
+        style="
+          padding: 6px 20px; 
+          background-color: #0056b3; 
+          border-radius: 10px; 
+          color: white; 
+          font-weight: 600; 
+          font-size: 12px; 
+          border: none;
+          cursor: pointer;
+          max-width: 90%;
+        ">
+        Eliminar Imágenes
+      </button>
+    </div>
+  `;
+
+  modalBody.appendChild(div);
+});
+
     }
 
 

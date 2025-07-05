@@ -65,7 +65,7 @@
           </div>
           <div class="modal-body">
               <!-- update formulario -->
-            <form  id="formulario-update-admin"> 
+            <form  id="formulario-update-admin" class="formulario-update-admin" > 
                       <input type="hidden" name="id" id="id-producto-update">
               <div class="form-container">
                           <!-- Nombre del Producto -->
@@ -73,9 +73,10 @@
                               <label for="productName-update" class="form-label">Nombre del Producto</label>
                               <input type="text" class="form-control input-nombre-update" name="nombre_productoUpdate" id="productName-update">
                               <div class="text-danger" id="error-nombre-update"></div>
-                              <button type="submit" class="btn btn-primary btn-sm mt-2 px-1 fs-7 me-3" id="update-ProductName">Actualizar</button>
-                              <button type="submit" class="btn btn-danger btn-sm px-1 fs-7 mt-2 boton__eliminar-nombre" id="delete-ProductName-1">Eliminar</button>
-                              
+                              <div class="container-btn">
+                                <button type="submit" class="btn btn-primary btn-sm mt-2 px-1 fs-7 me-3" id="update-ProductName">Actualizar</button>
+                                <button type="submit" class="btn btn-danger btn-sm px-1 fs-7 mt-2 boton__eliminar-nombre" id="delete-ProductName-1">Eliminar</button>
+                              </div>
                           
                           </div>
                         
@@ -84,8 +85,12 @@
                               <label for="productPrice-update" class="form-label">Precio</label>
                               <input type="number" class="form-control input-precio-update" name="precioUpdate" id="productPrice-update">
                               <div class="text-danger" id="error-precio-update"></div>
-                              <button type="submit" class="btn btn-primary btn-sm px-1 fs-7 mt-2 me-3" id="update-ProductPrice">Actualizar</button>
-                              <button type="submit" class="btn btn-danger btn-sm px-1 fs-7 mt-2 boton__eliminar-precio" id="delete-ProductPrice">Eliminar</button>
+                              <div class="container-btn">
+                                <button type="submit" class="btn btn-primary btn-sm px-1 fs-7 mt-2 me-3" id="update-ProductPrice">Actualizar</button>
+                                <button type="submit" class="btn btn-danger btn-sm px-1 fs-7 mt-2 boton__eliminar-precio" id="delete-ProductPrice">Eliminar</button>
+                                
+                              </div>
+                              
                           </div>
                         
                           <!-- Categoría -->
@@ -105,8 +110,11 @@
                             <input type="text" class="form-control" name="tallesUpdate" id="update-productSizes" placeholder="Ej: S, M, L, XL">
                             <select class="form-select mt-2 select-productSizes-update" id="select-productSizes-update" name="talleSeleccionado"><option disabled selected>Seleccioná un talle existente</option></select>
                             <div class="text-danger" id="error-talle-update"></div>
-                            <button type="submit" class="btn btn-primary btn-sm mt-2 px-1 fs-7 me-3" id="update-productSize">Actualizar</button>
-                            <button type="submit" class="btn btn-danger btn-sm px-1 fs-7 mt-2 boton__eliminar-talle"  id="delete-ProductSize">Eliminar</button>
+                           <div class="container-btn">
+                                <button type="submit" class="btn btn-primary btn-sm px-1 fs-7 mt-2 me-3" id="update-ProductPrice">Actualizar</button>
+                                <button type="submit" class="btn btn-danger btn-sm px-1 fs-7 mt-2 boton__eliminar-precio" id="delete-ProductPrice">Eliminar</button>
+                                
+                              </div>
                           </div>
                        
                           <!-- Colores -->
@@ -116,9 +124,11 @@
                             <select   class="form-select mt-2" id="select-productColors-update-2" name="colorSeleccionado"><option >Seleccioná un color existente</option>
                             </select>
                             <div class="text-danger" id="error-color-update"></div>
-                            <button type="submit" class="btn btn-primary btn-sm mt-2 px-1 fs-7 me-3" id="update-product-Colors">Actualizar</button>
-                            <button type="button" class="btn btn-danger btn-sm px-1 fs-7 mt-2 boton__eliminar-color" id="delete-Product-Colors">Eliminar</button>
-
+                           <div class="container-btn">
+                                <button type="submit" class="btn btn-primary btn-sm px-1 fs-7 mt-2 me-3" id="update-ProductPrice">Actualizar</button>
+                                <button type="submit" class="btn btn-danger btn-sm px-1 fs-7 mt-2 boton__eliminar-precio" id="delete-ProductPrice">Eliminar</button>
+                                
+                              </div>
                           </div>
                         
                           <!-- Stock General -->
@@ -131,9 +141,11 @@
                                 <!-- etc -->
                               </select>
                               <div class="text-danger" id="error-stock-update"></div>
-                              <button type="button" class="btn btn-primary btn-sm py-1 px-1 me-3 mt-2 fs-7" id="updateProductStock">Actualizar</button>
-                              <button type="button" class="btn btn-danger btn-sm py-1 px-1 mt-2 fs-7 boton__eliminar-stock" id="delete-ProductStock">Eliminar</button>
-                              
+                               <div class="container-btn">
+                                <button type="submit" class="btn btn-primary btn-sm px-1 fs-7 mt-2 me-3" id="update-ProductPrice">Actualizar</button>
+                                <button type="submit" class="btn btn-danger btn-sm px-1 fs-7 mt-2 boton__eliminar-precio" id="delete-ProductPrice">Eliminar</button>
+                                
+                              </div>
                           </div> 
                         
                         
@@ -142,8 +154,11 @@
                               <label for="detailName-update" class="form-label">Nombre del Detalle</label>
                               <input type="text" class="form-control input-detalle_nombre-update" name="detalle_nombreUpdate" id="detailName-update" placeholder="Ej: Material, Instrucciones">
                               <div class="text-danger" id="error-detalles-update"></div>
-                              <button type="submit" class="btn btn-primary btn-sm mt-2 px-1 fs-7 me-3" id="update-productNameDetail">Actualizar</button>
-                              <button type="submit" class="btn btn-danger btn-sm px-1 fs-7 mt-2 boton__eliminar-nombre-detalle" id="delete-ProductNameDetail">Eliminar</button>
+                               <div class="container-btn">
+                                <button type="submit" class="btn btn-primary btn-sm px-1 fs-7 mt-2 me-3" id="update-ProductPrice">Actualizar</button>
+                                <button type="submit" class="btn btn-danger btn-sm px-1 fs-7 mt-2 boton__eliminar-precio" id="delete-ProductPrice">Eliminar</button>
+                                
+                              </div>
                           </div>
                         
                           <!-- Descripción del Detalle -->
@@ -151,34 +166,38 @@
                               <label for="detailDescription-update" class="form-label">Descripción del Detalle</label>
                               <textarea class="form-control input-detalle_descripcionUpdate" name="detalle_descripcionUpdate" id="detailDescription-update" rows="4" placeholder="Ej: Hecho con algodón 100%"></textarea>
                               <div class="text-danger" id="error-descripcion-update"></div>
-                              <button type="submit" class="btn btn-primary btn-sm px-1 fs-7 mt-2 me-3" id="updateDetailDescription">Actualizar</button>
-                              <button type="submit" class="btn btn-danger btn-sm px-1 fs-7 mt-2 boton__eliminar-descripcion" id="deleteDetailDescription">Eliminar</button>
+                               <div class="container-btn">
+                                <button type="submit" class="btn btn-primary btn-sm px-1 fs-7 mt-2 me-3" id="update-ProductPrice">Actualizar</button>
+                                <button type="submit" class="btn btn-danger btn-sm px-1 fs-7 mt-2 boton__eliminar-precio" id="delete-ProductPrice">Eliminar</button>
+                                
+                              </div>
                           </div> 
-                        
-                          <button type="button" 
-                class="btn btn-primary btn-sm mt-2 w-100 w-sm-75 w-md-50 mx-auto d-block" 
-                        id="openImageModal-2">
-                  <i class="fas fa-camera"></i> Agregar imágenes
-                </button>
-                
-                <!-- Modificar imágenes -->
-                <button type="button" 
-                        class="btn btn-primary btn-sm mt-2 w-100 w-sm-75 w-md-50 mx-auto d-block" 
-                        id="openImageModal" 
-                        data-bs-toggle="modal-update" 
-                        data-bs-target="#imageModal">
-                  <i class="fas fa-camera"></i> Modificar imágenes
-                </button>
-                
-                <!-- Eliminar imagen -->
-                <button type="button" 
-                        class="btn btn-danger btn-sm mt-2 w-100 w-sm-75 w-md-50 mx-auto d-block" 
-                        id="openImageModalDelete" 
-                        data-bs-toggle="modal" 
-                        data-bs-target="#imageModal-delete-modal">
-                  Eliminar Imagen
-                </button>
-                        
+
+                              <div class="container-botones-imagenes">     
+                                     <button type="button" 
+                                     class="btn btn-primary btn-sm mt-2 w-100 w-sm-75 w-md-50 mx-auto d-block" 
+                                             id="openImageModal-2">
+                                       <i class="fas fa-camera"></i> Agregar imágenes
+                                     </button>
+
+                                     <!-- Modificar imágenes -->
+                                     <button type="button" 
+                                             class="btn btn-primary btn-sm mt-2 w-100 w-sm-75 w-md-50 mx-auto d-block" 
+                                             id="openImageModal" 
+                                             data-bs-toggle="modal-update" 
+                                             data-bs-target="#imageModal">
+                                       <i class="fas fa-camera"></i> Modificar imágenes
+                                     </button>
+
+                                     <!-- Eliminar imagen -->
+                                     <button type="button" 
+                                             class="btn btn-danger btn-sm mt-2 w-100 w-sm-75 w-md-50 mx-auto d-block" 
+                                             id="openImageModalDelete" 
+                                             data-bs-toggle="modal" 
+                                             data-bs-target="#imageModal-delete-modal">
+                                       Eliminar Imagen
+                                     </button>
+                              </div>          
               </div>
             </form> 
           

@@ -81,7 +81,8 @@ setTimeout(() => {
                     animate__faster
                   `
                 }
-              });
+              }); 
+              
             containerCookies.classList.remove('active-cookies') 
              
             setTimeout(() => {

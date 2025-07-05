@@ -273,7 +273,20 @@ button {
 
 .create-account::after {
   background-color: #198754;
+} 
+
+.container__cookies {
+  transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
 }
+
+.active-cookies {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0%);
+}
+
 
 @media (max-width: 1300px) {
   form {
@@ -327,7 +340,23 @@ button {
     align-items: center;
     gap: 1rem;
   }
+} 
+@media (max-width: 600px) {
+  .container__cookies {
+    position: fixed;       /* para que quede fijo en pantalla chica */
+    top: 1rem;
+    left: 5%;
+    width: 90%;
+    max-height: none;      /* quitar límite para que crezca si necesita */
+    margin-top: 0;
+    padding: 1rem 1.5rem;
+    font-size: 0.9rem;
+    box-shadow: inset 2px 2px 6px #303030;
+    border-radius: 8px;
+    transform: translateY(0);  /* quitar efecto de translate para que se vea */
+  }
 }
+
 
 @media (max-width: 400px) {
   form {
