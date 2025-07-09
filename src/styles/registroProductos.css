@@ -1,0 +1,888 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}  
+
+html {
+  overflow-x: hidden;
+}
+
+
+.modal-content {
+    max-height: 100vh; /* Máximo 90% de la pantalla */
+    overflow-y: auto; /* Desplazamiento interno */
+} 
+
+
+
+.modal-dialog {
+  max-width: 900px; /* Ajusta el tamaño del modal */
+}
+
+/* Crear dos columnas dentro del formulario */
+.form-container { 
+  display: grid;
+  width: 100%;
+  grid-template-columns:  1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+ 
+} 
+
+
+.form-group {
+  flex: 1;
+  min-width: 48%; /* Para que sean casi la mitad del ancho */
+}
+
+/* Reducir el tamaño de los inputs */
+.form-control {
+  font-size: 14px;
+  padding: 5px 10px;
+}
+
+/* Ajustar el área de previsualización de imágenes */
+#imagePreview {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+#imagePreview img {
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+}
+
+.small-input {
+  width: 80px;
+  text-align: center;
+} 
+
+.custom-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.custom-btn:hover {
+  background-color: #0056b3;
+}
+
+.modal-content {
+  border-radius: 12px; 
+}  
+
+#selectProduct-nombre {
+ overflow: scroll;
+ 
+} 
+
+
+
+.modal-update-imagenes-custom {
+  width: 100%;
+
+}
+
+.modal-dialog-update-imagenes-custom {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  max-width: 100%; 
+  
+}
+
+.modal-content-update-imagenes-custom {
+  height: 100%;
+}
+
+
+
+.modal-header {
+  background-color: #007bff;
+  color: white;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+
+.modal-content {
+  border-radius: 10px;
+}
+
+
+.modal-body-images-update{
+  width:100%;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding:1.5rem 2rem;
+
+   
+}
+
+.formulario-update-imagenes { 
+  width:100%;
+  padding-top: 2rem;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr); /* Siempre 3 columnas */
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  justify-content: center;
+  align-items: center;
+}  
+.modal-delete-imagenes-custom {
+  width: 100%;
+} 
+
+.container-update-btn{
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+  justify-content:start;
+
+  
+  
+
+}
+
+.modal-dialog-delete-imagenes-custom {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  max-width: 100%;
+}
+
+.modal-content-delete-imagenes-custom {
+  height: 100%;
+}
+
+.modal-header {
+  background-color: #007bff;
+  color: white;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.modal-content {
+  border-radius: 10px;
+} 
+
+.modal-body-images-delete {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 1.5rem 2rem;
+}
+
+.formulario-delete-imagenes {
+  width: 100%;
+  padding-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Siempre 3 columnas */
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+
+
+#imageModal-insert-modal {
+  width: 100%;
+}
+
+
+#imageModal-insert-modal .modal-dialog {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  max-width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+#imageModal-insert-modal .modal-content {
+  height: 100%;
+  border-radius: 10px;
+}
+
+.modal-header {
+  background-color: #007bff;
+  color: white;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+} 
+
+
+
+#imageModal-insert-modal .modal-dialog {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  max-width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#imageModal-insert-modal .modal-content {
+  height: 100%;
+  border-radius: 10px;
+}
+
+.modal-header {
+  background-color: #007bff;
+  color: white;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+
+.img-fluid{
+  width: 12rem;
+  height: 12rem;
+  object-fit: cover;
+  border-radius: 2rem;
+} 
+
+.input-imagen-update , .input-submit-udpate{
+  padding: 5px 20px;
+  background-color: #0056b3;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+  font-size: 11px;
+  border: none;
+}
+
+  .card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  } 
+
+  .th__acciones{
+    text-align:center;
+  
+  }
+
+
+ 
+  .table img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 8px;
+  } 
+  /* Estilo para la tabla */
+ .table-striped tbody tr {
+  margin-bottom: 10px; /* Espaciado entre filas */
+}
+
+/* Estilo para la columna del producto */
+#cuerpo-productos td img {
+  width: 50px; /* Ajusta el tamaño de la imagen */
+  height: 50px;
+  margin-right: 10px; /* Espacio entre la imagen y el nombre */
+  border-radius: 5px; /* Opcional: bordes redondeados */
+  vertical-align: middle; /* Alineación con el texto */
+}
+
+/* Espaciado entre las filas */
+#cuerpo-productos tr {
+  padding: 10px 0; /* Espaciado interno de las filas */
+  border-bottom: 1px solid #ddd; /* Línea opcional entre filas */
+}
+
+.card-title {
+  margin-bottom: 20px; /* Más separación debajo del título */
+}
+
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  } 
+
+  /* Para la fila desactivada */
+/* Fila desactivada */
+tr.desactivado {
+  position: relative; /* Necesario para el posicionamiento del indicador flotante */
+ 
+}
+
+tr.desactivado::after {
+  content: "Desactivado";
+  opacity: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-150%, -50%);
+  background-color: rgba(255, 0, 0, 0.9); /* Fondo rojo */
+  color: white;
+  font-size: 14px;
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  pointer-events: none;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 2; /* Asegura que el indicador esté sobre el contenido */
+}
+
+
+
+tr.desactivado .btn-editar,
+tr.desactivado .btn-eliminar {
+  opacity: 0.4; /* Asegura que los botones no tengan opacidad */
+  pointer-events: auto; /* Permite que sean clicables */
+}
+
+.form-select{
+  overflow: scroll;
+}
+
+
+/* Estilos para la tabla */
+#tabla-productos {
+  width: 100%; /* Asegura que la tabla ocupe todo el ancho disponible */
+  border-collapse: collapse; /* Elimina los espacios entre las celdas */
+}
+
+/* Estilos para las celdas */
+#tabla-productos th, #tabla-productos td {
+  padding: 10px; /* Añadir espacio alrededor del contenido */
+  vertical-align: middle; /* Alinea verticalmente los elementos */
+}
+
+/* Estilos para la fila */
+#tabla-productos tr {
+  border-bottom: 1px solid #ddd; /* Línea separadora entre filas */
+}
+
+/* Alineación de las imágenes */
+#tabla-productos img {
+  max-width: 50px;
+  height: auto;
+}
+
+/* Alineación de las acciones */
+#tabla-productos .btn {
+  margin-right: 5px; /* Espaciado entre los botones */
+  padding: 5px 10px; /* Ajusta el tamaño de los botones */ 
+  opacity:1;
+}
+
+/* Alineación de los checkboxes */
+#tabla-productos .form-check-input {
+  margin: 0;
+} 
+
+
+
+
+/* Hover sobre las filas para resaltar */
+
+/* Estilos para las celdas de acción */
+#tabla-productos td:last-child {
+  text-align: left; /* Alinea los botones a la izquierda */
+  padding: 10px; /* Asegura que la celda tenga suficiente espacio */
+  opacity:1;
+}
+
+/* Centra los botones dentro de la celda, alineados a la izquierda */
+#tabla-productos .btn-editar, 
+#tabla-productos .btn-eliminar {
+  display: inline-block; /* Los hace estar en la misma línea */
+  margin-right: 10px; /* Espacio entre los botones */
+  padding: 5px 10px; /* Ajusta el tamaño de los botones */
+}
+
+
+
+  .floating-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    animation: float 3s ease-in-out infinite;
+  }
+  @keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+  } 
+ 
+  /*Modo oscuro*/
+
+  body {
+    font-family: 'Arial', sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+     overflow-x: hidden;
+  }
+  
+  /* Estilo para el modo claro */
+  body.light-mode {
+    background-color: #ffffff;  /* Fondo blanco */
+    color: #000000;  /* Texto negro */
+  }
+  
+  /* Estilo para el modo oscuro */
+  body.dark-mode {
+    background-color: #000000;  /* Fondo negro */
+    color: #ffffff;  /* Texto blanco */
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;  /* Transición más suave y cálida */
+  }
+  
+  /* Estilos específicos para el botón de modo oscuro */
+  button.dark-mode-toggle {
+    background-color: transparent;
+    border: 2px solid currentColor;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: inherit;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  /* Hover del botón específico */
+ 
+  
+  /* Estilos para la tabla en modo oscuro */
+  body.dark-mode table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  
+  /* Estilo para el .card y .card-body en modo oscuro */
+  
+  
+  body.dark-mode .card-body {
+    background-color: #000000;  /* Fondo negro para el card-body */
+    color: #ffffff;  /* Texto blanco */
+  }
+  
+  /* Estilos para el tbody en modo oscuro */
+  
+  
+  /* Todas las celdas de la tabla, fondo negro y texto blanco */
+  body.dark-mode th,
+  body.dark-mode td {
+    padding: 10px;
+    border: 1px solid #444;  /* Bordes de color gris oscuro */
+    Color:#ffffff;
+    text-align: left;
+    background-color: #222;  /* Fondo gris oscuro para celdas */
+    color: #ffffff;  /* Texto blanco */
+    transition: background-color 0.3s, color 0.3s;
+  }
+ 
+  
+  /* Estilo para los encabezados de la tabla */
+  body.dark-mode th {
+    background-color: #000000;  /* Fondo negro en el encabezado */
+    color: #ffffff;  /* Texto blanco en el encabezado */
+  }
+  
+  
+  
+
+
+/* Asegurarse de que las celdas en modo oscuro tengan un fondo adecuado */
+body.dark-mode td {
+  background-color: #333 !important; /* Fondo más oscuro en modo oscuro */
+  color: #fff !important; /* Texto blanco */
+}
+
+tr.desactivado td {
+  opacity: 1;  /* Asegura que las celdas desactivadas tengan opacidad normal */
+  background-color: #f9f9f9 ; /* Fondo claro */
+}
+
+.dark-mode tbody tr:hover td {
+  background-color:#ffff !important; /* Fondo blanco al hacer hover */
+  color: #000 !important; /* Texto negro al hacer hover */
+  border-color: #ddd; /* Bordes claros al hacer hover */
+}
+
+
+      /* Estilo del icono de sol/luna flotante */
+      .floating-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #007bff;
+        padding: 10px;
+        border-radius: 50%;
+     
+        cursor: pointer;
+      }
+  
+      .floating-btn i {
+        color: white;
+        font-size: 1.5rem;
+      }
+
+      .d-flex {
+        align-items: center;
+    }
+    .btn-primary {
+        min-width: 40px;
+        padding: 5px;
+        text-align: center;
+    }
+    .modal-content {
+        border-radius: 10px;
+    } 
+
+
+
+
+
+
+
+/* ====================== */
+/* <= 1300px */
+@media (max-width: 1300px) {
+  .formulario-update-imagenes,
+  .formulario-delete-imagenes {
+    grid-template-columns: repeat(2, 1fr);
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .modal-body-images-update,
+  .modal-body-images-delete {
+    padding: 1rem 3rem;
+  }
+}
+
+/* ====================== */
+/* <= 1024px */
+@media (max-width: 1024px) {
+  .form-container {
+    flex-direction: column;
+  }
+
+  .form-group {
+    min-width: 100%;
+  }
+
+  .formulario-update-imagenes,
+  .formulario-delete-imagenes {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .modal-body-images-update,
+  .modal-body-images-delete {
+    padding: 1rem 2rem;
+  }
+
+  .modal-dialog-update-imagenes-custom,
+  .modal-dialog-delete-imagenes-custom {
+    max-width: 95%;
+  }
+}
+
+/* ====================== */
+/* <= 768px */
+@media (max-width: 768px) {
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .formulario-update-imagenes,
+  .formulario-delete-imagenes {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .modal-body-images-update,
+  .modal-body-images-delete {
+    padding: 1rem;
+  }
+
+  .modal-dialog,
+  .modal-dialog-update-imagenes-custom,
+  .modal-dialog-delete-imagenes-custom {
+    margin: 1rem;
+    width: auto;
+  }
+
+  .modal-content {
+    border-radius: 12px;
+  }
+
+  .header,
+  .responsive-header-products,
+  .responsive-header-title,
+  .nav-responsive {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+}
+
+/* ====================== */
+/* <= 480px */
+@media (max-width: 480px) {
+  .form-container {
+    padding: 0;
+    grid-template-columns: 1fr;
+  }
+
+  .formulario-update-imagenes,
+  .formulario-delete-imagenes {
+    padding: 1rem;
+  }
+
+  .modal-body-images-update,
+  .modal-body-images-delete {
+    padding: 1rem;
+  }
+
+  .modal-header h5,
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .form-control,
+  .form-select,
+  .btn {
+    font-size: 0.85rem;
+  }
+
+  .modal-dialog {
+    max-width: 95vw;
+    margin: 1rem auto;
+  }
+
+  .floating-btn {
+    bottom: 10px;
+    right: 10px;
+    padding: 8px;
+  }
+
+  .floating-btn img {
+    width: 28px;
+    height: 28px;
+  }
+
+  /* Tabla estilo tarjeta */
+  #tabla-productos {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 1rem;
+  }
+
+  #tabla-productos thead {
+    display: none;
+  }
+
+  #tabla-productos tr {
+    display: block;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  #tabla-productos td {
+    display: block;
+    text-align: left;
+    font-size: 0.85rem;
+    padding: 6px 0;
+  }
+
+  #tabla-productos td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 2px;
+    color: #444;
+  }
+
+  #tabla-productos img {
+    width: 60px;
+    height: auto;
+    margin-bottom: 0.5rem;
+  }
+
+  .btn {
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 6px;
+    font-size: 0.8rem;
+  }
+
+  #mostrarInactivosBtn {
+    width: 100%;
+    font-size: 0.85rem;
+    padding: 8px;
+  }
+
+  .nav-responsive {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    gap: 1.2rem;
+  }
+}
+
+/* ====================== */
+/* <= 375px */
+@media (max-width: 375px) {
+  .btn {
+    padding: 4px 8px;
+    font-size: 0.8rem;
+  }
+
+  .modal-header h5 {
+    font-size: 0.95rem;
+  }
+
+  .modal-body-images-update,
+  .modal-body-images-delete {
+    padding: 0.5rem;
+  }
+
+  .formulario-update-imagenes,
+  .formulario-delete-imagenes {
+    padding: 0.5rem;
+    gap: 0.8rem;
+  }
+
+  .select2-container {
+    width: 100% !important;
+  }
+
+  .modal-content {
+    border-radius: 8px;
+  }
+}
+
+/* ====================== */
+/* <= 320px */
+@media (max-width: 320px) {
+  .modal-dialog {
+    max-width: 95vw;
+    margin: 0 auto;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 6px;
+    font-size: 0.75rem;
+    text-align: center;
+  }
+
+  .formulario-update-imagenes,
+  .formulario-delete-imagenes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0.5rem;
+    width: 100%;
+  }
+
+  .form-control,
+  .form-select {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    width: 100%;
+  }
+
+  .modal-body-images-update,
+  .modal-body-images-delete {
+    padding: 0.5rem;
+  }
+
+  .modal-content {
+    border-radius: 10px;
+  }
+
+  .floating-btn {
+    bottom: 10px;
+    right: 10px;
+    padding: 6px;
+    border-radius: 50%;
+  }
+
+  .floating-btn img {
+    width: 25px;
+    height: 25px;
+  }
+
+  #tabla-productos th,
+  #tabla-productos td {
+    font-size: 11px;
+    padding: 6px 4px;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .select2-container {
+    width: 100% !important;
+    font-size: 13px;
+  }
+
+  /* Ocultar columnas innecesarias */
+  #tabla-productos th:nth-child(1),
+  #tabla-productos td:nth-child(1),
+  #tabla-productos th:nth-child(6),
+  #tabla-productos td:nth-child(6) {
+    display: none;
+  }
+}
+

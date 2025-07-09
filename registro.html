@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./src/styles/formulario.css">
+    <title>Registro</title>
+</head>
+<body> 
+
+    
+
+    <main> 
+        
+      
+
+        <div class="contenedor" id="contenedor">  
+
+            <div class="hero-section">
+                <img src="./public/images/mujeres_comprando.jpg" alt="Imagen principal" class="hero-image">
+                <div class="gradient-overlay"></div>  
+                
+                <form  id="formulario">
+              
+                   <div class="container">
+                       <label for="nombre">Nombre</label>
+                       <input class="nombre" type="text" placeholder="Ingresa tu nombre" name="nombre">
+                       <div class="container__icon" id="container-ingreso-1">
+                           <i class="bi bi-x-square icono"></i>
+                           <p class="error">El nombre solo debe contener letras (incluyendo acentos), espacios y guiones.</p>
+                       </div>
+                   </div>
+           
+                   <div class="container">
+                       <label for="apellido">Apellido</label>
+                       <input class="apellido" type="text" placeholder="Ingresa tu apellido" name="apellido">
+                       <div class="container__icon" id="container-ingreso-2">
+                           <i class="bi bi-x-square icono"></i>
+                           <p class="error">El apellido solo debe contener letras (incluyendo acentos), espacios y guiones.</p>
+                       </div>
+                   </div>
+           
+                   <div class="container">
+                       <label for="dni">DNI</label>
+                       <input class="dni" type="text" placeholder="Ingresa tu DNI" name="dni">
+                       <div class="container__icon" id="container-ingreso-3">
+                           <i class="bi bi-x-square icono"></i>
+                           <p class="error">El DNI debe tener entre 6 y 12 dígitos y solo puede contener números.</p>
+                       </div>
+                   </div>
+           
+                   <div class="container">
+                       <label for="email">Email</label>
+                       <input class="email__empleado" type="email" placeholder="Ingresa tu email" name="email">
+                       <div class="container__icon" id="container-ingreso-4">
+                           <i class="bi bi-x-square icono"></i>
+                           <p class="error">Por favor, introduce un correo electrónico válido.</p>
+                       </div>
+                   </div>
+           
+                   <div class="container">
+                       <label for="usuarios">Usuario</label>
+                       <input class="usuario__empleados" type="text" placeholder="Ingresa tu usuario" name="usuarios">
+                       <div class="container__icon" id="container-ingreso-5">
+                           <i class="bi bi-x-square icono"></i>
+                           <p class="error">El nombre de usuario debe tener entre 3 y 16 caracteres y solo puede contener letras, números, guiones y guiones bajos.</p>
+                       </div>
+                   </div>
+           
+                   <div class="container">
+                       <label for="contrasena">Password</label>
+                       <input class="usuario__contraseña" type="password" placeholder="Ingresa tu contraseña" name="contrasena">
+                       <div class="container__icon" id="container-ingreso-6">
+                           <i class="bi bi-x-square icono"></i>
+                           <p class="error">La contraseña debe tener entre 6 y 16 caracteres, con al menos una letra mayúscula, una minúscula y un número</p>
+                       </div>
+                   </div> 
+   
+                    <div class="btn__container">
+                       <p><a href="./login.html">¡Ya estoy logueado!</a></p>
+                    </div>
+                    <input class="enviar" type="submit" value="Enviar">
+                </form>
+             
+              </div>
+          
+            
+            
+        </div>
+        
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script type="module" src="./src/js/registro.js"></script>
+    <!-- Incluir SweetAlert2 desde CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+</html>

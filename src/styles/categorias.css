@@ -1,0 +1,430 @@
+body {
+  width: 97%;
+  margin: auto;
+  font-family: Arial, sans-serif;
+  padding: 20px 0;
+  background-color: #fff;
+  color: #222;
+}
+
+/* Floating button */
+.floating-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  border-radius: 50%;
+  background-color: #007bff;
+  color: white;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.floating-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Search container */
+.search-container {
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+/* Imagen de categoría */
+.imagenes-categoria {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* Input de búsqueda */
+#searchCategory {
+  width: 250px;
+  max-width: 100%;
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease;
+}
+
+#searchCategory:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Botones */
+#searchButton,
+#clearButton {
+  padding: 8px 18px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+}
+
+#searchButton {
+  background-color: #4CAF50;
+  color: white;
+}
+
+#searchButton:hover {
+  background-color: #45a049;
+}
+
+#clearButton {
+  background-color: #f44336;
+  color: white;
+}
+
+#clearButton:hover {
+  background-color: #e53935;
+}
+
+/* Botones eliminar y actualizar ocultos por defecto */
+#deleteSelected,
+#updateSelected {
+  display: none;
+}
+
+/* Botón redondeado para todas las categorías */
+#allCategoriesButton {
+  border-radius: 25px;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+#allCategoriesButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Tabla categorías */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 15px;
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f8f9fa;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+.table_danger {
+  background-color: #f8d7da !important;
+  opacity: 0.7;
+}
+
+/* Botones editar y eliminar en la tabla */
+.btn-editar {
+  background-color: #f0ad4e;
+  border: none;
+  padding: 6px 14px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #fff;
+  margin-right: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-editar:hover {
+  background-color: #ec971f;
+}
+
+.btn-eliminar {
+  background-color: #ff3b3b;
+  border: none;
+  padding: 6px 14px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-eliminar:hover {
+  background-color: #e63939;
+}
+
+/* MODAL */
+.modal-content {
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  border: none;
+  max-width: 500px;
+  margin: auto;
+}
+
+.modal-header {
+  background: rgba(255, 0, 0, 0.1);
+  border-bottom: none;
+}
+
+.modal-title {
+  font-weight: bold;
+  color: #dc3545;
+}
+
+.modal-body p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Botones en modal */
+.modal-content .btn {
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  padding: 10px 20px;
+}
+
+.modal-content .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-danger {
+  background-color: #ff3b3b;
+  border-color: #ff3b3b;
+}
+
+.btn-danger:hover {
+  background-color: #ff1e1e;
+  border-color: #ff1e1e;
+}
+
+.btn-secondary {
+  background-color: #f1f1f1;
+  color: #333;
+  border-color: #ddd;
+}
+
+.btn-secondary:hover {
+  background-color: #e2e2e2;
+  border-color: #ccc;
+}
+
+/* =============================== */
+/* === MEDIA QUERIES RESPONSIVE === */
+/* =============================== */
+
+/* ≤ 1024px */
+@media (max-width: 1024px) {
+  #searchCategory {
+    width: 220px;
+  }
+
+  .modal-body p {
+    font-size: 15px;
+  }
+
+  th, td {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+}
+
+/* ≤ 768px */
+@media (max-width: 768px) {
+  .search-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+
+  #searchCategory {
+    width: 100%;
+  }
+
+  #searchButton,
+  #clearButton {
+    width: 100%;
+  }
+
+  .imagenes-categoria {
+    width: 44px;
+    height: 44px;
+  }
+
+  .modal-body p {
+    font-size: 14.5px;
+  }
+
+  th, td {
+    font-size: 13.5px;
+    padding: 8px 10px;
+  }
+}
+
+/* ≤ 480px */
+@media (max-width: 480px) {
+  body {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .floating-btn {
+    bottom: 16px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+  }
+
+  #searchCategory {
+    font-size: 15px;
+  }
+
+  #searchButton,
+  #clearButton {
+    font-size: 15px;
+    padding: 8px 14px;
+  }
+
+  .modal-body p {
+    font-size: 14px;
+  }
+
+  .modal-content .btn {
+    font-size: 15px;
+    padding: 8px 16px;
+  }
+
+  #allCategoriesButton {
+    font-size: 15px;
+    padding: 8px 18px;
+  }
+
+  th, td {
+    font-size: 13.5px;
+    padding: 8px 10px;
+  }
+}
+
+/* ≤ 375px */
+@media (max-width: 375px) {
+  .search-container {
+    gap: 12px;
+  }
+
+  #searchCategory {
+    font-size: 14px;
+  }
+
+  #searchButton,
+  #clearButton {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .modal-body p {
+    font-size: 13.5px;
+  }
+
+  .modal-content .btn {
+    font-size: 14px;
+    padding: 7px 14px;
+  }
+
+  #allCategoriesButton {
+    font-size: 14px;
+    padding: 7px 14px;
+  }
+
+  th, td {
+    font-size: 13px;
+    padding: 6px 8px;
+  }
+}
+
+/* ≤ 320px */
+@media (max-width: 320px) {
+  #searchCategory {
+    font-size: 13px;
+  }
+
+  #searchButton,
+  #clearButton {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+
+  .imagenes-categoria {
+    width: 40px;
+    height: 40px;
+  }
+
+  .modal-body p {
+    font-size: 13px;
+  }
+
+  .modal-content .btn {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+
+  #allCategoriesButton {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+
+  .search-container {
+    gap: 10px;
+  }
+
+  th, td {
+    font-size: 12.5px;
+    padding: 5px 6px;
+  }
+}

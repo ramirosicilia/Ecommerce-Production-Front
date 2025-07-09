@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Inicio</title>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+        <link rel="stylesheet" href="./src/styles/index.css">
+    </head>
+
+    <body> 
+      
+      <div id="app"> 
+
+        <!-- Barra de navegación -->
+          <nav class="navbar">
+           <!-- IZQUIERDA --> 
+           
+            <div class="navbar-left">
+              <div class="logo">Mi Tienda:</div>
+              <a class="link-ancor" href="./productosUsuario.html">VER PRODUCTOS</a>
+            </div>
+          
+            
+          <!-- INPUT OCULTO PARA TOGGLE -->
+              <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                      
+              <!-- LABEL CON ÍCONO HAMBURGUESA -->
+              <label for="menu-toggle" class="hamburger">
+                <i class="bi bi-list"></i>
+              </label>
+          
+            <!-- DERECHA -->
+            <ul class="nav-links" id="nav-links">
+              <li><a target="_blank" href="./registro.html">Registro</a></li>
+              <li><a target="_blank" href="./login.html">Login</a></li>
+            </ul>
+          </nav> 
+
+
+        <div class="container">
+          <!-- Imagen principal con gradiente -->
+          <div class="hero-section">
+            <img src="./public/images/mujeres_comprando.jpg" alt="Imagen principal" class="hero-image">
+            <div class="gradient-overlay"></div>
+            <div class="hero-text">
+              <h1>Explora nuestra colección</h1>
+              <p>Encuentra el estilo perfecto para ti.</p>
+            </div>
+          </div>
+      
+          <!-- Sección de productos -->
+          <div class="products-section">
+            <!-- Generar 16 productos con párrafos -->
+            <div class="product">
+              <img src="./public/images/pantalon-celeste-1.jpeg" alt="Producto 1">
+              <p class="product-description">
+                Este producto está diseñado para ofrecer comodidad y estilo. Perfecto para tu día a día.
+              </p>
+            </div>
+            <div class="product">
+              <img src="./public/images/vestido-negro-8.jpeg" alt="Producto 2">
+              <p class="product-description">
+                Elegancia y frescura en un solo atuendo. Ideal para cualquier ocasión especial.
+              </p>
+            </div>
+            <div class="product">
+               <img src="./images/remerita-rosa.jpeg" alt="Producto 3">
+               <p class="product-description">
+                Un clásico moderno que combina perfectamente con tu estilo casual favorito.
+              </p>
+            </div>
+            <div class="product">
+                <img src="./public/images/pantalon-babucha-cremita.jpeg" alt="Producto 4"> 
+                 <p class="product-description">
+                Resalta tu personalidad con este hermoso pantalon material de algodon muy comodo para el dìa a diá.
+              </p>
+            </div>
+            <!-- Repetir para completar 16 productos -->
+          </div>
+        </div> 
+
+
+        <footer class="footer">
+            <div class="footer-content">
+              <p>&copy; 2025 Mi Tienda. Todos los derechos reservados.</p>
+              <ul class="footer-links">
+                <li><a target="_blank" href="./terminos.html">Términos y condiciones</a></li>
+                <li><a target="_blank" href="./privacidad.html">Política de privacidad</a></li>
+              </ul>
+            </div>
+        </footer> 
+        
+
+      </div>
+      
+
+        <script type="module" src="/src/main.js"></script>
+        <script src="https://sdk.mercadopago.com/js/v2"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+         <script >
+          localStorage.removeItem("usuario") 
+           console.log("verificado") 
+        </script>
+       
+      
+    </body>
+  
+
+</html>

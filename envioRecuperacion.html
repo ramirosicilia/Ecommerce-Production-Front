@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+    <link rel="stylesheet" href="./src/styles/envioRecuperacion.css">
+    <title>Envio Recuperacion</title>
+</head>
+<body> 
+
+    <div class="contenedor"> 
+        <div class="hero-section">
+            <img src="./public/images/mujeres_comprando.jpg" alt="Imagen principal" class="hero-image">
+            <div class="gradient-overlay"></div>
+            <form class="form__recuperacion" id="form-recuperacion"> 
+                <h1 class="user_email">Ingrese su email</h1> 
+   
+                 <div class="container">
+                   <label for="email">Email</label>
+                   <input class="email__user" type="email" placeholder="Ingresa tu email" name="email"> 
+   
+                     <div class="container__icon" id="container-ingreso">
+                         <i class="bi bi-x-square icono"></i>
+                         <p class="error">Por favor, introduce un correo electrónico válido.</p>
+                     </div>
+                 </div>
+                    
+                        
+                 <input type="submit" value="enviar" class="enviar"> 
+       
+           </form>
+
+           
+        </div>
+      
+
+       
+       
+      
+
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <script type="module" src="./src/js/recuperacionCuenta.js"></script>
+ 
+</body>
+</html>

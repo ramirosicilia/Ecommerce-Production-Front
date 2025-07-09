@@ -1,0 +1,49 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+    <link rel="stylesheet" href="./src/styles/paginaProductos.css">  
+    <title>Producto - VIZZANO</title>
+   
+</head>
+<body>
+    <div class="container">
+      <div id="modal" class="modal-class">
+        <div class="modal-header header-style">
+          <span class="header-text">Selecciona tus opciones para agregar el producto al carro</span>
+          <span id="close" class="close-icon">&times;</span>
+        </div>
+        <div class="product-info info-style">
+          <img class="imagen_modal img-style" src="" alt="Botín Mujer Negro">
+          <div class="details details-style">
+            <div class="nombre"></div>
+            <div class="detalles"></div>
+            <div class="precio price-style"></div>
+          </div>
+        </div>
+        <div class="section section-style">
+          <label for="talla" class="label-bold">Talla:</label>
+          <div class="sizes-box sizes-style" id="sizes-box">
+            
+          </div>
+        </div>
+        <div class="section section-style">
+          <label for="color" class="label-color">Color:</label>
+          <div class="colors-box colors-style"></div>
+        </div>
+        <div class="footer footer-style">
+          <button class="close-btn btn-cerrar btn-cerrar-style">Cerrar</button>
+          <button type="button" class="select-btn btn__opciones btn-select-style">Elige tus opciones</button>
+        </div>
+      </div> 
+      
+
+      <!-- modal 2-->
+
+      
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <script type="module" src="./src/js/detallesProductos.js"></script>
+</body>
+</html>

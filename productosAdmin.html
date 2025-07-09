@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Productos - Admin Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./src/styles/registroProductos.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+  <body>
+    <div class="container-fluid">
+      <div class="header">
+        <h1>Gestión de Productos</h1>
+      </div> 
+    </div> 
+    
+      <!-- Tabla de productos -->
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center mb-3  nav-responsive">
+            <div class="d-flex align-items-center gap-3">
+              <h5 class="card-title mb-0">Lista de Productos</h5>
+              <!-- Select de Categorías -->
+              <select class="form-select ms-3" id="categoria-select-products" style="width: auto;"></select>
+            </div>
+          
+            <!-- Botón Mostrar Inactivos -->
+            <button class="btn btn-primary" id="mostrarInactivosBtn">Mostrar Inactivos</button>
+          </div>
+        
+          <table class="table table-striped" id="tabla-productos">
+            <thead>
+              <tr>
+                <th>Inhabilitar</th>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Categoría</th>
+                <th>talles y colores</th>
+                <th>stock</th>
+                <th class="th__acciones">acciones</th>
+              
+              </tr>
+            </thead>
+            <tbody id="cuerpo-productos" class="cuerpo-producto">
+              <!-- Aquí puedes agregar más productos de manera dinámica -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    
+      <!-- Modal Editar Producto -->
+    <div class="modal fade" id="editProductModal" tabindex="-1" aria-labelledby="editProductModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editProductModalLabel">Editar Producto</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <!-- update formulario -->
+            <form  id="formulario-update-admin"> 
+                      <input type="hidden" name="id" id="id-producto-update">
+              <div class="form-container">
+                          <!-- Nombre del Producto -->
+                          <div class="form-group">
+                              <label for="productName-update" class="form-label">Nombre del Producto</label>
+                              <input type="text" class="form-control input-nombre-update" name="nombre_productoUpdate" id="productName-update">
+                              <div class="text-danger" id="error-nombre-update"></div>
+                              <button type="submit" class="btn btn-primary btn-sm mt-2 px-1 fs-7 me-3" id="update-ProductName">Actualizar</button>
+                              <button type="submit" class="btn btn-danger btn-sm px-1 fs-7 mt-2 boton__eliminar-nombre" id="delete-ProductName-1">Eliminar</button>
+                              
+                          
+                          </div>
+                        
+                          <!-- Precio -->
+                          <div class="form-group">
+                              <label for="productPrice-update" class="form-label">Precio</label>
+                              <input type="number" class="form-control input-precio-update" name="precioUpdate" id="productPrice-update">
+                              <div class="text-danger" id="error-precio-update"></div>
+                              <button type="submit" class="btn btn-primary btn-sm px-1 fs-7 mt-2 me-3" id="update-ProductPrice">Actualizar</button>
+                              <button type="submit" class="btn btn-danger btn-sm px-1 fs-7 mt-2 boton__eliminar-precio" id="delete-ProductPrice">Eliminar</button>
+                          </div>
+                        
+                          <!-- Categoría -->
+                          <div class="form-group">
+                              <label for="productCategory-update" class="form-label">Categoría</label>
+                              <select class="form-control input-categorias-update" name="categoriasUpdate" id="productCategory-update">
+                                  <option value="">Selecciona una categoría</option>
+                              </select>
+                              <div class="text-danger" id="error-categoria-update"></div>
+                            
+                          </div> 
+                        
+                        <!-- Talles--> 
+
+                          <div class="form-group">
+                            <label for="productSizes-update" class="form-label">Talles</label>
+                            <input type="text" class="form-control" name="tallesUpdate" id="update-productSizes" placeholder="Ej: S, M, L, XL">
+                            <select class="form-select mt-2 select-productSizes-update" id="select-productSizes-update" name="talleSeleccionado"><option disabled selected>Seleccioná un talle existente</option></select>
+                            <div class="text-danger" id="error-talle-update"></div>
+                            <button type="submit" class="btn btn-primary btn-sm mt-2 px-1 fs-7 me-3" id="update-productSize">Actualizar</button>
+                            <button type="submit" class="btn btn-danger btn-sm px-1 fs-7 mt-2 boton__eliminar-talle"  id="delete-ProductSize">Eliminar</button>
+                          </div>
+                       
+                          <!-- Colores -->
+                          <div class="form-group">
+                            <label for="productColors-update" class="form-label">Colores</label>
+                            <input type="text" class="form-control select-productColors-update-2" name="coloresUpdate" id="update-productColor" placeholder="Ej: Rojo, Azul, Verde">
+                            <select   class="form-select mt-2" id="select-productColors-update-2" name="colorSeleccionado"><option >Seleccioná un color existente</option>
+                            </select>
+                            <div class="text-danger" id="error-color-update"></div>
+                            <button type="submit" class="btn btn-primary btn-sm mt-2 px-1 fs-7 me-3" id="update-product-Colors">Actualizar</button>
+                            <button type="button" class="btn btn-danger btn-sm px-1 fs-7 mt-2 boton__eliminar-color" id="delete-Product-Colors">Eliminar</button>
+
+                          </div>
+                        
+                          <!-- Stock General -->
+                          <div class="form-group">
+                              <label for="productStock-update" class="form-label">Stock General</label>
+                              <input type="number" class="form-control input-stock-update" name="stockUpdate" id="productStock-update" placeholder="Ej: valor numérico" min="1">
+                              <select  class="form-select select-stock-combinaciones" id="select-stock-combinaciones" name="stockCombinacion">
+                                <option disabled selected>Seleccioná una combinación</option>
+                      
+                                <!-- etc -->
+                              </select>
+                              <div class="text-danger" id="error-stock-update"></div>
+                              <button type="button" class="btn btn-primary btn-sm py-1 px-1 me-3 mt-2 fs-7" id="updateProductStock">Actualizar</button>
+                              <button type="button" class="btn btn-danger btn-sm py-1 px-1 mt-2 fs-7 boton__eliminar-stock" id="delete-ProductStock">Eliminar</button>
+                              
+                          </div> 
+                        
+                        
+                          <!-- Nombre del Detalle -->
+                          <div class="form-group">
+                              <label for="detailName-update" class="form-label">Nombre del Detalle</label>
+                              <input type="text" class="form-control input-detalle_nombre-update" name="detalle_nombreUpdate" id="detailName-update" placeholder="Ej: Material, Instrucciones">
+                              <div class="text-danger" id="error-detalles-update"></div>
+                              <button type="submit" class="btn btn-primary btn-sm mt-2 px-1 fs-7 me-3" id="update-productNameDetail">Actualizar</button>
+                              <button type="submit" class="btn btn-danger btn-sm px-1 fs-7 mt-2 boton__eliminar-nombre-detalle" id="delete-ProductNameDetail">Eliminar</button>
+                          </div>
+                        
+                          <!-- Descripción del Detalle -->
+                          <div class="form-group">
+                              <label for="detailDescription-update" class="form-label">Descripción del Detalle</label>
+                              <textarea class="form-control input-detalle_descripcionUpdate" name="detalle_descripcionUpdate" id="detailDescription-update" rows="4" placeholder="Ej: Hecho con algodón 100%"></textarea>
+                              <div class="text-danger" id="error-descripcion-update"></div>
+                              <button type="submit" class="btn btn-primary btn-sm px-1 fs-7 mt-2 me-3" id="updateDetailDescription">Actualizar</button>
+                              <button type="submit" class="btn btn-danger btn-sm px-1 fs-7 mt-2 boton__eliminar-descripcion" id="deleteDetailDescription">Eliminar</button>
+                          </div> 
+                        
+                          <button type="button"  class="btn btn-primary btn-sm mt-2" id="openImageModal-2" style="margin-top: -2rem;">
+                            <i class="fas fa-camera"></i> Agregar imágenes
+                          </button> 
+                        
+                        
+                        
+                          <!-- Imágenes -->
+                          <button type="button"  class="btn btn-primary btn-sm mt-2" id="openImageModal" style="margin-top: -2rem;" data-bs-toggle="modal-update" data-bs-target="#imageModal">
+                              <i class="fas fa-camera"></i> modificar imagenes
+                          </button> 
+                        
+                          <button type="button" class="btn btn-danger btn-sm mt-2" data-bs-toggle="modal" id="openImageModalDelete" data-bs-target="#imageModal-delete-modal">
+                            Eliminar Imagen
+                          </button>
+                        
+                        
+              </div>
+            </form> 
+          
+             <!-- Modal de insercion-->
+
+              <div class="modal fade" id="imageModal-insert-modal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="imageModalLabel">Agregar Imagen</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+      
+
+            
+              <!-- Modal de Imágenes update -->
+              <div class="modal fade modal-update-imagenes-custom" id='imageModal-update-modal' tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-update-imagenes-custom">
+                  <div class="modal-content modal-content-update-imagenes-custom" id="modal-imagenes-update">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="imageModalLabel">Modificar Imágenes</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body-images-update" id="modal-images-update"></div>
+                  </div>
+                </div>
+              </div> 
+              
+  
+          </div>
+        </div>
+      </div>
+    </div>  
+                <!-- Modal de Imágenes delete --> 
+
+      <div class="modal fade modal-delete-imagenes-custom" id="imageModal-delete-modal" tabindex="-1" aria-labelledby="imageModalDeleteLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-delete-imagenes-custom">
+                <div class="modal-content modal-content-delete-imagenes-custom" id="modal-imagenes-delete">
+                     <div class="modal-header">
+                         <h5 class="modal-title" id="imageModalDeleteLabel">Eliminar Imágenes</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                      </div>
+
+                      <div class="modal-body text-center" id="modal-body-delete">
+            
+                      </div> 
+                 </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmModalLabel">Confirmar Eliminación</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <p>¿Estás seguro de que deseas eliminar este registro?</p>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" id="boton-confirmacion-borrar">Eliminar</button>
+                </div>
+            </div>
+        </div>
+
+    </div>  
+
+    
+      <!-- Floating Button con íconos de sol y luna -->
+      <div class="floating-btn" onclick="toggleDarkMode()">
+        <img id="themeIcon" src="https://img.icons8.com/ios/50/000000/sun.png" alt="Sol">
+      </div>
+   
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script type="module" src="./src/js/mostrarProductosAdmin.js"></script>
+    <script type="module" src="./src/js/productosInactivos.js"></script> 
+    <script type="module" src="./src/js/filtradoProductosAdmin.js"></script>
+
+   
+  
+    <script> 
+    
+      function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+        const icon = document.getElementById('themeIcon');
+        if (document.body.classList.contains('dark-mode')) {
+          icon.src = 'https://img.icons8.com/ios/50/000000/moon.png'; // Luna
+        } else {
+          icon.src = 'https://img.icons8.com/ios/50/000000/sun.png'; // Sol
+        }
+      }
+    
+      // Estilo para el modo oscuro
+      document.body.classList.add('light-mode');  
+    
+    </script>  
+
+   
+  
+  </body>
+
+</html> 

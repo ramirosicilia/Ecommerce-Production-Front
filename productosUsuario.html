@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Usuario</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- CSS Personalizado -->
+  <link rel="stylesheet" href="./src/styles/paginaProductos.css">  
+
+</head>
+
+
+<body>
+
+  <!-- Navbar -->
+ <nav class="navbar navI navbar-expand-lg navbar-light bg-light shadow-sm py-3" id="nav">
+  <div class="container">
+    <h2 class="navbar-brand user__ingresado fw-bold text-primary mb-0">
+      Ingreso: <span class="badge bg-success bg-opacity-25 text-success">marcelo_33</span>
+    </h2>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center gap-4 me-4">
+        <li class="nav-item">
+          <a class="nav-link carrito text-dark" href="./carrito.html">
+            <i class="bi bi-arrow-right icono me-1"></i> Carrito
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="#productos">Productos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="#contacto">Contacto</a>
+        </li>
+      </ul>
+
+      <!-- Íconos a la derecha -->
+      <div class="d-flex align-items-center gap-4">
+        <!-- Carrito -->
+        <div class="position-relative" title="Ver carrito">
+          <i class="fas fa-shopping-cart fa-lg text-dark"></i>
+          <span id="cart-count"
+            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+        </div>
+
+        <!-- Cerrar sesión -->
+        <div class="logout-icon" title="Cerrar sesión" style="cursor: pointer;">
+          <i id="cerrar-seccion" class="fas fa-xmark fa-lg text-danger"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+  <!-- Selector de Categorías -->
+  <section id="categorias" class="py-4 bg-light section-oscura">
+    <div class="container">
+      <h2 class="text-center mb-4 text-primary categ">Categorías</h2>
+      <select id="categorySelector" class="form-select"> 
+        <option value="todas" >Todas</option>
+
+        <!-- Dinamico Javas Script --> 
+    
+      </select>
+    </div>
+  </section>
+
+
+  <!-- Productos -->
+  <section id="productos" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4 text-primary">Productos</h2>
+      
+      <div class="row g-4" id="productos_lista">
+
+
+       <!--productos --> 
+
+      </div> 
+             
+      <!-- Producto 1 -->
+
+
+    </div>  
+  </section>
+  
+
+
+ <!-- Footer -->
+<footer class="footer bg-primary text-white py-4" id="contacto">
+    <div class="container">
+      <div class="footer-content text-center">
+        <p class="derechos-reservados">© 2025 MiTienda - Todos los derechos reservados.</p>
+        <div class="contact-info"> 
+            
+          <a href="https://wa.me/1138778373" target="_blank" class="whatsapp-link">
+            <i class="bi bi-whatsapp watshapp"></i>
+            <span class="phone-number">+54 11 3877-8373</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <div class="floating-btn" onclick="toggleDarkMode()">
+    <img id="themeIcon" src="https://img.icons8.com/ios/50/000000/sun.png" alt="Tema">
+  </div> 
+
+ 
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script type="module" src="./src/js/paginaProductos.js"></script>  
+  
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      const icon = document.getElementById('themeIcon');
+      icon.src = document.body.classList.contains('dark-mode')
+        ? 'https://img.icons8.com/ios/50/ffffff/moon.png'
+        : 'https://img.icons8.com/ios/50/000000/sun.png';
+    } 
+
+   
+  </script>
+
+ 
+</body>
+</html>

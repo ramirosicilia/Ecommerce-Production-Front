@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Admin Dashboard - Empresa Internacional</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./src/styles/dashboard.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h4>Admin Dashboard</h4>
+    <a href="#" target="_blank"><i class="fa fa-home"></i> Dashboard</a>
+    <a href="./productosAdmin.html" target="_blank"><i class="fa fa-box"></i> Productos</a>
+    <a href="./categorias.html" target="_blank"><i class="fa fa-box"></i> Categorias</a>
+    <a href="./productosUsuario.html" target="_blank"><i class="fa fa-box"></i> E-commerce</a>
+    <a href="./ventas.html" target="_blank"><i class="fa fa-chart-bar"></i> Ventas</a>
+    <a href="./pagos.html" target="_blank"><i class="fa fa-cogs"></i> Pagos</a>
+    
+
+  </div>
+
+  <!-- Main Content -->
+  
+  <div class="content">
+    <div class="header">
+      <h1>Panel de Administración</h1>
+      <a href= "./registroProductos.html" target="_blank" class="btn btn-primary"><i class="fa fa-plus"></i> Agregar Producto</a>
+    </div>
+
+    <!-- Cards -->
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header">Ventas Totales</div>
+          <div class="card-body">
+            <h3 id="total-actual">$0</h3>
+           <p id="comparacion-mes-pasado">Comparado con el mes pasado</p>
+
+          </div>
+        </div>
+      </div> 
+     
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header">Clientes Activos</div>
+          <div class="card-body">
+           <h3 id="clientes-activos-numero"></h3>
+            <p>Clientes activos este mes</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header">Productos Vendidos</div>
+          <div class="card-body">
+            <h3 id="productos-vendidos-numero">0</h3>
+            <p>Total de ventas este mes</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sales Chart -->
+    <div class="card mt-4">
+      <div class="card-header">Rendimiento de Ventas</div>
+      <div class="card-body">
+        <canvas id="salesChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Admin Dashboard - Empresa Internacional</p>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script type="module" src="./src/js/dashboard.js"></script>
+
+</body>
+</html>

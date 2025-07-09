@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Categorías</title>
+  <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./src/styles/categorias.css">
+  
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="header d-flex justify-content-between align-items-center my-4">
+    <h1>Gestión de Categorías</h1>
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCategoryModal"><i class="fas fa-plus"></i> Agregar Categoría</button>
+  </div>
+
+  <!-- Buscador de Categorías -->
+  <div class="search-container d-flex justify-content-between align-items-center">
+    <div class="d-flex gap-2">
+        <input type="text" class="form-control" id="searchCategory" placeholder="Buscar Categoría">
+        <button class="btn btn-primary" type="submit" id="searchButton" class="searchButton">
+            <i class="fas fa-search"></i> Buscar
+        </button>
+        <button class="btn btn-secondary" id="clearButton">
+            <i class="fas fa-times"></i> Limpiar
+        </button>
+    </div>
+    <button class="btn btn-primary btn-lg px-8"  id="allCategoriesButton">Todas</button>
+</div>
+
+
+
+
+  <!-- Tabla de Categorías -->
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title">Lista de Categorías</h5>
+      <div class="d-flex justify-content-start mb-3">
+        <!-- Botones de Eliminar y Actualizar -->
+        <button class="btn btn-danger me-2" id="deleteSelected"><i class="fas fa-trash"></i> Eliminar Seleccionadas</button>
+        <button class="btn btn-warning" id="updateSelected"><i class="fas fa-edit"></i> Actualizar Seleccionadas</button>
+      </div>
+      <table class="table table-striped" id="tabla-categorias">
+        <thead>
+          <tr>
+            <th>Inhabilitar</th>
+            <th>Categoría</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="cuerpo-categorias">
+          <!-- Aquí se agregarán las categorías dinámicamente -->
+          <!--<tr>
+            <td><input type="checkbox" class="form-check-input select-category"></td>
+            <td>Ejemplo Categoría</td>
+            <td>
+              <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editCategoryModal"><i class="fas fa-edit"></i> Editar</button>
+              <button class="btn btn-danger btn-sm"  data-bs-toggle="modal" data-bs-target="#deleteCategoryModal"><i class="fas fa-trash"></i> Eliminar</button>
+            </td>
+          </tr>-->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div> 
+
+
+<!-- Modal Agregar Categoría -->
+<!-- Modal para Agregar Categoría -->
+<div class="modal fade" id="addCategoryModal" tabindex="-1" aria-labelledby="addCategoryModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addCategoryModalLabel">Agregar Categoría</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form  id="formulario-categoria-ingreso" >
+          <div class="mb-3">
+            <label for="categoryName" class="form-label">Nombre de la Categoría</label>
+            <input type="text" class="form-control" name="category" id="categoryName_new" placeholder="Ingrese el nombre de la categoría" required>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Guardar Categoría</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Modal Editar Categoría -->
+<!-- Modal Editar Categoría -->
+<div class="modal fade" id="editCategoryModal" tabindex="-1" aria-labelledby="editCategoryModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editCategoryModalLabel">Editar Categoría</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="formulario-categoria-update" action="http://localhost:1200/actualizar-categoria" method="put">
+          <!-- Campo para mostrar el valor actual -->
+          <!-- Campo para ingresar el nuevo valor -->
+          <div class="mb-3">
+            <label for="newCategoryName" class="form-label">Nueva Categoría</label>
+            <input type="text" class="form-control" id="newCategoryName" name="nuevoNombre" required>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Actualizar Categoría</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> 
+
+
+
+<div class="modal fade" id="deleteCategoryModal" tabindex="-1" aria-labelledby="deleteCategoryModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+          <!-- Encabezado del modal -->
+          <div class="modal-header">
+              <h5 class="modal-title" id="deleteCategoryModalLabel">¿Eliminar Categoría?</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <!-- Cuerpo del modal -->
+          <div class="modal-body text-center">
+              <p>
+                  ¿Estás seguro de que deseas eliminar la categoría 
+                  <strong id="categoryToDelete"></strong>? 
+                  Esta acción no se puede deshacer.
+              </p>
+              <!-- Botones de acción -->
+              <div class="d-flex justify-content-center gap-3">
+                  <button type="button" class="btn btn-danger btn-borrar-confirm" id="confirmDelete">Sí, eliminar</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No, cancelar</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+<!-- Floating Button -->
+<div class="floating-btn">
+  <button class="btn btn-danger rounded-circle"><i class="fas fa-cogs"></i></button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+<script type="module" src="./src/js/agregarCategorias.js"></script>
+<script type="module" src="./src/js/Categorias.js"></script>
+<script type="module" src="./src/js/allCategorys.js"></script>
+
+</body>
+</html>
